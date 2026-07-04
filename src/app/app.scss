@@ -8,3 +8,18 @@
     font-weight: 600;
   }
 }
+
+.event-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding: 0.15rem 0;
+  }
+
+  .year {
+    color: #666;
+    font-variant-numeric: tabular-nums;
+    margin-right: 0.5rem;
+  }
+}

@@ -1,6 +1,25 @@
 <main class="container">
   <h1>{{ title() }}</h1>
-  <p>Geschichtliche Ereignisse auf einer Zeitachse — im Aufbau.</p>
+
+  @if (repo.loading()) {
+    <p role="status">Lade Daten …</p>
+  } @else if (repo.error()) {
+    <p role="alert">{{ repo.error() }}</p>
+  } @else {
+    <!-- Schlichte Liste (Spec 1b): Beweis, dass echte Daten fließen. Wird in 1c durch die Timeline ersetzt. -->
+    <p>{{ repo.events().length }} Ereignisse geladen.</p>
+    <ul class="event-list">
+      @for (event of repo.events(); track event.id) {
+        <li>
+          <span class="year">{{ formatYear(event.start.year) }}</span>
+          @if (event.end) {
+            <span class="year">–{{ formatYear(event.end.year) }}</span>
+          }
+          {{ event.title }}
+        </li>
+      }
+    </ul>
+  }
 </main>
 
 <router-outlet />

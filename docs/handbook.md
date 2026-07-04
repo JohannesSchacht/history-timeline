@@ -8,9 +8,19 @@ Die App läuft im Browser, ohne Installation:
 
 **https://johannesschacht.github.io/history-timeline/**
 
-Sie zeigt derzeit eine Platzhalterseite (Stand: Schritt 1a, Walking
-Skeleton). Jede Änderung, die das Projekt auf dem `main`-Branch erreicht,
-ist nach wenigen Minuten automatisch dort sichtbar.
+Jede Änderung, die das Projekt auf dem `main`-Branch erreicht, ist nach
+wenigen Minuten automatisch dort sichtbar.
+
+## Was die App zeigt (Stand: Schritt 1b)
+
+Die App lädt einen kuratierten Beispieldatensatz (49 historische Ereignisse,
+Schwerpunkt Europa 1450–1650, mit Ankern von der Antike bis zur Mondlandung)
+und zeigt ihn als schlichte Liste: Jahr(e) und Titel je Ereignis, inklusive
+v.-Chr.-Datierungen und Zeitspannen. Die grafische Zeitachse folgt in
+Schritt 1c.
+
+Die Daten liegen als JSON-Dateien im Repository (`public/data/`) und können
+dort gepflegt werden; ein automatischer Test validiert sie bei jedem Push.
 
 ## Für Entwickler (Kurzreferenz)
 

@@ -1,0 +1,503 @@
+[
+  {
+    "id": "ev-schlacht-thermopylen",
+    "title": "Schlacht bei den Thermopylen",
+    "start": { "year": -480 },
+    "precision": "year",
+    "type": "typ-schlacht",
+    "categories": ["cat-militaer"],
+    "placeIds": ["pl-thermopylen"],
+    "description": "Griechische Stadtstaaten unter Leonidas stellen sich dem persischen Heer entgegen. Anker-Event v. Chr. für die Zeitachse."
+  },
+  {
+    "id": "ev-roemisches-kaiserreich",
+    "title": "Römisches Kaiserreich",
+    "start": { "year": -27 },
+    "end": { "year": 476 },
+    "precision": "year",
+    "type": "typ-epoche",
+    "categories": ["cat-politik", "cat-militaer"],
+    "placeIds": ["pl-rom"],
+    "description": "Von Augustus bis zur Absetzung des Romulus Augustulus im Westen. Lange Epoche über die Zeitenwende hinweg."
+  },
+  {
+    "id": "ev-buchdruck",
+    "title": "Erfindung des Buchdrucks mit beweglichen Lettern",
+    "start": { "year": 1450 },
+    "precision": "circa",
+    "type": "typ-ereignis",
+    "categories": ["cat-wissenschaft", "cat-kultur", "cat-wirtschaft"],
+    "placeIds": ["pl-mainz"],
+    "description": "Johannes Gutenberg entwickelt den Druck mit beweglichen Metalllettern — Wissensrevolution mit drei Kategorien."
+  },
+  {
+    "id": "ev-geburt-leonardo",
+    "title": "Geburt Leonardo da Vincis",
+    "start": { "year": 1452, "month": 4, "day": 15 },
+    "precision": "day",
+    "type": "typ-geburt",
+    "categories": ["cat-kultur", "cat-wissenschaft"],
+    "placeIds": ["pl-vinci"],
+    "description": "Der Universalgelehrte der Renaissance wird in Vinci bei Florenz geboren."
+  },
+  {
+    "id": "ev-fall-konstantinopel",
+    "title": "Fall Konstantinopels",
+    "start": { "year": 1453, "month": 5, "day": 29 },
+    "precision": "day",
+    "type": "typ-schlacht",
+    "categories": ["cat-militaer", "cat-religion", "cat-politik"],
+    "placeIds": ["pl-konstantinopel"],
+    "description": "Die Osmanen unter Mehmed II. erobern die byzantinische Hauptstadt — Ende des Byzantinischen Reichs."
+  },
+  {
+    "id": "ev-schlacht-castillon",
+    "title": "Schlacht von Castillon",
+    "start": { "year": 1453, "month": 7, "day": 17 },
+    "precision": "day",
+    "type": "typ-schlacht",
+    "categories": ["cat-militaer", "cat-politik"],
+    "placeIds": ["pl-castillon"],
+    "description": "Letzte Schlacht des Hundertjährigen Kriegs — dichtes Cluster mit dem Fall Konstantinopels im selben Jahr."
+  },
+  {
+    "id": "ev-gutenberg-bibel",
+    "title": "Fertigstellung der Gutenberg-Bibel",
+    "start": { "year": 1454 },
+    "precision": "circa",
+    "type": "typ-ereignis",
+    "categories": ["cat-kultur", "cat-religion"],
+    "placeIds": ["pl-mainz"],
+    "description": "Das erste bedeutende gedruckte Buch Europas entsteht in Mainz."
+  },
+  {
+    "id": "ev-rosenkriege",
+    "title": "Rosenkriege",
+    "start": { "year": 1455 },
+    "end": { "year": 1485 },
+    "precision": "year",
+    "type": "typ-krieg",
+    "categories": ["cat-politik", "cat-militaer"],
+    "placeIds": ["pl-london"],
+    "description": "Englischer Thronfolgekrieg zwischen den Häusern Lancaster und York."
+  },
+  {
+    "id": "ev-geburt-erasmus",
+    "title": "Geburt des Erasmus von Rotterdam",
+    "start": { "year": 1466 },
+    "precision": "circa",
+    "type": "typ-geburt",
+    "categories": ["cat-kultur", "cat-religion"],
+    "placeIds": ["pl-rotterdam"],
+    "description": "Geburtsjahr des Humanisten ist nicht gesichert (1466 oder 1469) — circa-Datierung."
+  },
+  {
+    "id": "ev-gruendung-inquisition",
+    "title": "Gründung der Spanischen Inquisition",
+    "start": { "year": 1478, "month": 11, "day": 1 },
+    "precision": "day",
+    "type": "typ-gruendung",
+    "categories": ["cat-religion", "cat-politik"],
+    "placeIds": ["pl-sevilla"],
+    "description": "Päpstliche Bulle erlaubt den katholischen Königen die Einsetzung von Inquisitoren."
+  },
+  {
+    "id": "ev-geburt-luther",
+    "title": "Geburt Martin Luthers",
+    "start": { "year": 1483, "month": 11, "day": 10 },
+    "precision": "day",
+    "type": "typ-geburt",
+    "categories": ["cat-religion"],
+    "placeIds": ["pl-eisleben"],
+    "description": "Der spätere Reformator wird in Eisleben geboren."
+  },
+  {
+    "id": "ev-fall-granada",
+    "title": "Fall Granadas — Ende der Reconquista",
+    "start": { "year": 1492, "month": 1, "day": 2 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-militaer", "cat-religion", "cat-politik"],
+    "placeIds": ["pl-granada"],
+    "description": "Das letzte maurische Reich auf der Iberischen Halbinsel kapituliert. Erstes von drei 1492er-Events (Cluster!)."
+  },
+  {
+    "id": "ev-alhambra-edikt",
+    "title": "Alhambra-Edikt",
+    "start": { "year": 1492, "month": 3, "day": 31 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-religion", "cat-politik"],
+    "placeIds": ["pl-granada"],
+    "description": "Vertreibung der Juden aus Spanien — zweites 1492er-Event am selben Ort."
+  },
+  {
+    "id": "ev-kolumbus-amerika",
+    "title": "Kolumbus erreicht Amerika",
+    "start": { "year": 1492, "month": 10, "day": 12 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-wissenschaft", "cat-wirtschaft", "cat-politik"],
+    "placeIds": ["pl-palos", "pl-guanahani"],
+    "description": "Landung auf Guanahani nach Abfahrt in Palos — Event mit zwei Orten (Start und Ziel)."
+  },
+  {
+    "id": "ev-vertrag-tordesillas",
+    "title": "Vertrag von Tordesillas",
+    "start": { "year": 1494, "month": 6, "day": 7 },
+    "precision": "day",
+    "type": "typ-vertrag",
+    "categories": ["cat-politik", "cat-wirtschaft"],
+    "placeIds": [],
+    "description": "Spanien und Portugal teilen die außereuropäische Welt — Beispiel für ein Event ohne verknüpften Ort."
+  },
+  {
+    "id": "ev-italienische-kriege",
+    "title": "Italienische Kriege",
+    "start": { "year": 1494 },
+    "end": { "year": 1559 },
+    "precision": "year",
+    "type": "typ-krieg",
+    "categories": ["cat-militaer", "cat-politik"],
+    "placeIds": [],
+    "description": "65 Jahre Ringen um die Vorherrschaft in Italien — lange Spanne, die viele Punkt-Events überlappt."
+  },
+  {
+    "id": "ev-vasco-da-gama",
+    "title": "Vasco da Gama erreicht Indien",
+    "start": { "year": 1498, "month": 5, "day": 20 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-wirtschaft", "cat-wissenschaft"],
+    "placeIds": ["pl-calicut"],
+    "description": "Der Seeweg nach Indien ist gefunden — Beginn des portugiesischen Gewürzhandels."
+  },
+  {
+    "id": "ev-mona-lisa",
+    "title": "Leonardo beginnt die Mona Lisa",
+    "start": { "year": 1503 },
+    "precision": "circa",
+    "type": "typ-ereignis",
+    "categories": ["cat-kultur"],
+    "placeIds": ["pl-florenz"],
+    "description": "Entstehungsbeginn des berühmtesten Porträts der Kunstgeschichte, Datierung unsicher."
+  },
+  {
+    "id": "ev-david-michelangelo",
+    "title": "Enthüllung von Michelangelos David",
+    "start": { "year": 1504, "month": 9, "day": 8 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-kultur"],
+    "placeIds": ["pl-florenz"],
+    "description": "Die Marmorstatue wird vor dem Palazzo Vecchio aufgestellt — Florenz-Cluster mit der Mona Lisa."
+  },
+  {
+    "id": "ev-sixtinische-decke",
+    "title": "Michelangelo malt die Sixtinische Decke",
+    "start": { "year": 1508 },
+    "end": { "year": 1512 },
+    "precision": "year",
+    "type": "typ-ereignis",
+    "categories": ["cat-kultur", "cat-religion"],
+    "placeIds": ["pl-rom"],
+    "description": "Vier Jahre Arbeit an der Decke der Sixtinischen Kapelle — mittellange Spanne."
+  },
+  {
+    "id": "ev-95-thesen",
+    "title": "Luthers 95 Thesen",
+    "start": { "year": 1517, "month": 10, "day": 31 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-religion"],
+    "placeIds": ["pl-wittenberg"],
+    "description": "Der Thesenanschlag von Wittenberg — symbolischer Beginn der Reformation."
+  },
+  {
+    "id": "ev-magellan-weltumsegelung",
+    "title": "Erste Weltumsegelung (Magellan/Elcano)",
+    "start": { "year": 1519, "month": 9, "day": 20 },
+    "end": { "year": 1522, "month": 9, "day": 6 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-wissenschaft", "cat-wirtschaft"],
+    "placeIds": ["pl-sanlucar"],
+    "description": "Aufbruch und Rückkehr in Sanlúcar — tagesgenaue Zeitspanne über drei Jahre."
+  },
+  {
+    "id": "ev-tod-leonardo",
+    "title": "Tod Leonardo da Vincis",
+    "start": { "year": 1519, "month": 5, "day": 2 },
+    "precision": "day",
+    "type": "typ-tod",
+    "categories": ["cat-kultur", "cat-wissenschaft"],
+    "placeIds": ["pl-amboise"],
+    "description": "Leonardo stirbt auf Schloss Clos Lucé — Gegenstück zur Geburt 1452 (späteres Kompositions-Beispiel)."
+  },
+  {
+    "id": "ev-luther-worms",
+    "title": "Luther vor dem Reichstag zu Worms",
+    "start": { "year": 1521, "month": 4, "day": 17 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-religion", "cat-politik"],
+    "placeIds": ["pl-worms"],
+    "description": "„Hier stehe ich…“ — Luther verweigert den Widerruf vor Kaiser Karl V."
+  },
+  {
+    "id": "ev-fall-tenochtitlan",
+    "title": "Eroberung Tenochtitláns",
+    "start": { "year": 1521, "month": 8, "day": 13 },
+    "precision": "day",
+    "type": "typ-schlacht",
+    "categories": ["cat-militaer", "cat-politik"],
+    "placeIds": ["pl-tenochtitlan"],
+    "description": "Cortés erobert die Hauptstadt der Azteken — Ende des Aztekenreichs, gleiches Jahr wie Worms."
+  },
+  {
+    "id": "ev-bauernkrieg",
+    "title": "Deutscher Bauernkrieg",
+    "start": { "year": 1524 },
+    "end": { "year": 1525 },
+    "precision": "year",
+    "type": "typ-krieg",
+    "categories": ["cat-militaer", "cat-religion", "cat-wirtschaft"],
+    "placeIds": [],
+    "description": "Aufstände der Bauern in weiten Teilen des Reichs — kurze Spanne mit drei Kategorien."
+  },
+  {
+    "id": "ev-sacco-di-roma",
+    "title": "Sacco di Roma",
+    "start": { "year": 1527, "month": 5, "day": 6 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-militaer", "cat-religion"],
+    "placeIds": ["pl-rom"],
+    "description": "Plünderung Roms durch die Truppen Karls V."
+  },
+  {
+    "id": "ev-belagerung-wien",
+    "title": "Erste Wiener Türkenbelagerung",
+    "start": { "year": 1529, "month": 9 },
+    "end": { "year": 1529, "month": 10 },
+    "precision": "month",
+    "type": "typ-schlacht",
+    "categories": ["cat-militaer", "cat-politik"],
+    "placeIds": ["pl-wien"],
+    "description": "Die Osmanen belagern Wien vergeblich — monatsgenaue Spanne (Sep./Okt.)."
+  },
+  {
+    "id": "ev-augsburger-bekenntnis",
+    "title": "Augsburger Bekenntnis",
+    "start": { "year": 1530, "month": 6, "day": 25 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-religion", "cat-politik"],
+    "placeIds": ["pl-augsburg"],
+    "description": "Die protestantischen Stände übergeben Kaiser Karl V. ihr Glaubensbekenntnis."
+  },
+  {
+    "id": "ev-act-of-supremacy",
+    "title": "Act of Supremacy",
+    "start": { "year": 1534 },
+    "precision": "year",
+    "type": "typ-ereignis",
+    "categories": ["cat-religion", "cat-politik"],
+    "placeIds": ["pl-london"],
+    "description": "Heinrich VIII. wird Oberhaupt der Kirche von England — Bruch mit Rom."
+  },
+  {
+    "id": "ev-kopernikus",
+    "title": "Kopernikus: De revolutionibus orbium coelestium",
+    "start": { "year": 1543 },
+    "precision": "year",
+    "type": "typ-ereignis",
+    "categories": ["cat-wissenschaft"],
+    "placeIds": ["pl-nuernberg"],
+    "description": "Das heliozentrische Weltbild erscheint im Druck — in Nürnberg."
+  },
+  {
+    "id": "ev-konzil-trient",
+    "title": "Konzil von Trient",
+    "start": { "year": 1545, "month": 12, "day": 13 },
+    "end": { "year": 1563, "month": 12, "day": 4 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-religion"],
+    "placeIds": ["pl-trient"],
+    "description": "Das Reformkonzil der katholischen Kirche — 18 Jahre Spanne mit tagesgenauen Rändern."
+  },
+  {
+    "id": "ev-augsburger-religionsfrieden",
+    "title": "Augsburger Religionsfrieden",
+    "start": { "year": 1555, "month": 9, "day": 25 },
+    "precision": "day",
+    "type": "typ-vertrag",
+    "categories": ["cat-religion", "cat-politik"],
+    "placeIds": ["pl-augsburg"],
+    "description": "„Cuius regio, eius religio“ — Rechtsfrieden zwischen den Konfessionen im Reich."
+  },
+  {
+    "id": "ev-kroenung-elisabeth",
+    "title": "Krönung Elisabeths I.",
+    "start": { "year": 1559, "month": 1, "day": 15 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-politik"],
+    "placeIds": ["pl-london"],
+    "description": "Beginn des Elisabethanischen Zeitalters."
+  },
+  {
+    "id": "ev-schlacht-lepanto",
+    "title": "Seeschlacht von Lepanto",
+    "start": { "year": 1571, "month": 10, "day": 7 },
+    "precision": "day",
+    "type": "typ-schlacht",
+    "categories": ["cat-militaer", "cat-religion"],
+    "placeIds": ["pl-lepanto"],
+    "description": "Die Heilige Liga besiegt die osmanische Flotte — unser Standard-Beispiel für Mehrkategorien (Militär+Religion)."
+  },
+  {
+    "id": "ev-bartholomaeusnacht",
+    "title": "Bartholomäusnacht",
+    "start": { "year": 1572, "month": 8, "day": 24 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-religion", "cat-politik"],
+    "placeIds": ["pl-paris"],
+    "description": "Massaker an den Hugenotten in Paris."
+  },
+  {
+    "id": "ev-gregorianischer-kalender",
+    "title": "Einführung des Gregorianischen Kalenders",
+    "start": { "year": 1582, "month": 10, "day": 15 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-wissenschaft", "cat-religion"],
+    "placeIds": ["pl-rom"],
+    "description": "Auf den 4. Oktober folgt der 15. Oktober — die Kalenderreform Gregors XIII."
+  },
+  {
+    "id": "ev-spanische-armada",
+    "title": "Untergang der Spanischen Armada",
+    "start": { "year": 1588, "month": 7 },
+    "end": { "year": 1588, "month": 8 },
+    "precision": "month",
+    "type": "typ-schlacht",
+    "categories": ["cat-militaer", "cat-politik"],
+    "placeIds": ["pl-aermelkanal"],
+    "description": "England wehrt die spanische Invasionsflotte ab — Ort ohne Koordinate (Seegebiet)."
+  },
+  {
+    "id": "ev-geburt-descartes",
+    "title": "Geburt René Descartes'",
+    "start": { "year": 1596, "month": 3, "day": 31 },
+    "precision": "day",
+    "type": "typ-geburt",
+    "categories": ["cat-wissenschaft"],
+    "placeIds": ["pl-la-haye"],
+    "description": "Der Begründer des Rationalismus wird in der Touraine geboren."
+  },
+  {
+    "id": "ev-edikt-von-nantes",
+    "title": "Edikt von Nantes",
+    "start": { "year": 1598, "month": 4, "day": 13 },
+    "precision": "day",
+    "type": "typ-vertrag",
+    "categories": ["cat-religion", "cat-politik"],
+    "placeIds": ["pl-nantes"],
+    "description": "Heinrich IV. gewährt den Hugenotten Glaubensfreiheit — Ende der Religionskriege in Frankreich."
+  },
+  {
+    "id": "ev-hamlet",
+    "title": "Shakespeares Hamlet",
+    "start": { "year": 1601 },
+    "precision": "circa",
+    "type": "typ-ereignis",
+    "categories": ["cat-kultur"],
+    "placeIds": ["pl-london"],
+    "description": "Entstehung um 1600/1601 — Datierung unsicher, circa."
+  },
+  {
+    "id": "ev-gruendung-voc",
+    "title": "Gründung der Niederländischen Ostindien-Kompanie (VOC)",
+    "start": { "year": 1602, "month": 3, "day": 20 },
+    "precision": "day",
+    "type": "typ-gruendung",
+    "categories": ["cat-wirtschaft", "cat-politik"],
+    "placeIds": ["pl-amsterdam"],
+    "description": "Die erste Aktiengesellschaft der Welt entsteht in Amsterdam."
+  },
+  {
+    "id": "ev-galilei-fernrohr",
+    "title": "Galilei richtet das Fernrohr zum Himmel",
+    "start": { "year": 1609 },
+    "precision": "year",
+    "type": "typ-ereignis",
+    "categories": ["cat-wissenschaft"],
+    "placeIds": ["pl-padua"],
+    "description": "Beginn der Teleskop-Astronomie: Mondkrater, Jupitermonde, Milchstraße."
+  },
+  {
+    "id": "ev-prager-fenstersturz",
+    "title": "Prager Fenstersturz",
+    "start": { "year": 1618, "month": 5, "day": 23 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-politik", "cat-religion"],
+    "placeIds": ["pl-prag"],
+    "description": "Auslöser des Dreißigjährigen Kriegs — Punkt-Event exakt am Beginn der großen Spanne."
+  },
+  {
+    "id": "ev-dreissigjaehriger-krieg",
+    "title": "Dreißigjähriger Krieg",
+    "start": { "year": 1618, "month": 5, "day": 23 },
+    "end": { "year": 1648, "month": 10, "day": 24 },
+    "precision": "day",
+    "type": "typ-krieg",
+    "categories": ["cat-militaer", "cat-religion", "cat-politik"],
+    "placeIds": ["pl-prag", "pl-muenster", "pl-osnabrueck"],
+    "description": "Vom Fenstersturz bis zum Westfälischen Frieden — lange Spanne mit drei Orten und drei Kategorien."
+  },
+  {
+    "id": "ev-mayflower",
+    "title": "Abfahrt der Mayflower",
+    "start": { "year": 1620, "month": 9, "day": 16 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-religion", "cat-wirtschaft"],
+    "placeIds": ["pl-plymouth"],
+    "description": "Die Pilgerväter brechen nach Amerika auf."
+  },
+  {
+    "id": "ev-westfaelischer-friede",
+    "title": "Westfälischer Friede",
+    "start": { "year": 1648, "month": 10, "day": 24 },
+    "precision": "day",
+    "type": "typ-vertrag",
+    "categories": ["cat-politik", "cat-religion"],
+    "placeIds": ["pl-muenster", "pl-osnabrueck"],
+    "description": "Friedensschluss in Münster und Osnabrück — zwei Orte, exakt am Ende der Kriegs-Spanne."
+  },
+  {
+    "id": "ev-erster-weltkrieg",
+    "title": "Erster Weltkrieg",
+    "start": { "year": 1914, "month": 7, "day": 28 },
+    "end": { "year": 1918, "month": 11, "day": 11 },
+    "precision": "day",
+    "type": "typ-krieg",
+    "categories": ["cat-militaer", "cat-politik"],
+    "placeIds": [],
+    "description": "Anker-Event 20. Jahrhundert — testet weite Zoom-Distanzen auf der Achse."
+  },
+  {
+    "id": "ev-mondlandung",
+    "title": "Mondlandung (Apollo 11)",
+    "start": { "year": 1969, "month": 7, "day": 20 },
+    "precision": "day",
+    "type": "typ-ereignis",
+    "categories": ["cat-wissenschaft", "cat-politik"],
+    "placeIds": [],
+    "description": "„Ein kleiner Schritt…“ — Anker-Event der jüngsten Geschichte, bewusst ohne (irdischen) Ort."
+  }
+]

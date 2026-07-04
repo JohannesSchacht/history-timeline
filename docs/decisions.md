@@ -28,3 +28,6 @@ Je Eintrag: Entscheidung — kurze Begründung. (Zeitstempel trägt die Git-Hist
 - **Coverage: nur ein globaler Boden (~80 % Statements)** — kein Ratcheting, keine Bereichs-Matrix; inhaltliche Qualität sichert die Definition-of-Done.
 - **Angular 22** (`ng new`-Stand bei 1a; zoneless & Vitest sind dort Default). Dafür Node auf 24.18 LTS aktualisiert.
 - **e2e-Skripte:** `npm run e2e` baut immer erst (`ng build && playwright test`) — nacktes `playwright test` testet sonst einen veralteten dist (bei der Mutations-Stichprobe live beobachtet).
+- **`HistoricalEvent` statt `Event`** — das Spec-Interface hieß `Event`, kollidiert aber mit dem DOM-`Event` (jeder UI-Handler). Dokumentierte Abweichung in 1b.
+- **Eigenes Datumsformat `{year, month?, day?}`** mit negativen Jahren für v. Chr. — kein JS-`Date` (kann v. Chr./Kalenderwechsel nicht sauber).
+- **Beispieldatensatz: Europa 1450–1650 + Anker** (Thermopylen, Röm. Reich, 1. WK, Mondlandung) — bewusst „gemein": Cluster, lange Spannen, Mehrkategorien, circa, 0/1/n Orte.

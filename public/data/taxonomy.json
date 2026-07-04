@@ -1,0 +1,20 @@
+{
+  "categories": [
+    { "id": "cat-politik", "name": "Politik", "children": [] },
+    { "id": "cat-militaer", "name": "Militär", "children": [] },
+    { "id": "cat-kultur", "name": "Kultur", "children": [] },
+    { "id": "cat-wissenschaft", "name": "Wissenschaft", "children": [] },
+    { "id": "cat-religion", "name": "Religion", "children": [] },
+    { "id": "cat-wirtschaft", "name": "Wirtschaft", "children": [] }
+  ],
+  "types": [
+    { "id": "typ-ereignis", "name": "Ereignis" },
+    { "id": "typ-epoche", "name": "Epoche" },
+    { "id": "typ-krieg", "name": "Krieg" },
+    { "id": "typ-schlacht", "name": "Schlacht" },
+    { "id": "typ-vertrag", "name": "Vertrag" },
+    { "id": "typ-gruendung", "name": "Gründung" },
+    { "id": "typ-geburt", "name": "Geburt" },
+    { "id": "typ-tod", "name": "Tod" }
+  ]
+}
