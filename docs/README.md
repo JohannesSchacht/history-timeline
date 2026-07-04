@@ -26,17 +26,19 @@
   (57 Events: Erdzeitalter bis Mondlandung, Kern Europa 1450–1650).
 - **Schritt 1c (statische Timeline):** `layoutTimeline` als reine Funktionen,
   SVG-Timeline-Komponente (Kategorie T).
-- **Schritt 1d (Zoom & Pan):** Wheel-Zoom um den Cursor (Fokus-Invariante,
-  L1-getestet), Pointer-Drag-Pan, Viewport als Signal, Grenzen
-  (1 Jahr … ±5 Mrd.), `formatAxisYear` löst Q7. 61 Unit-Tests + 3 e2e.
-  Zoomfaktor-Feintuning ggf. nach Erspielen.
+- **Schritt 1d (Zoom & Pan):** Wheel-Zoom um den Cursor (Fokus-Invariante),
+  Pointer-Drag-Pan, `formatAxisYear` löst Q7.
+- **Schritt 1e (Filter):** ODER-Semantik über Kategorien (Baum-expandiert),
+  Typ-Filter unabhängig; `TimelineStore` (@ngrx/signals) eingezogen,
+  Filter-Panel (fieldset/Checkbox-Chips). 77 Unit-Tests + 4 e2e.
 
 ## Nächste Schritte
-- **Gemeinsam mit der Achse spielen** (Zoomgefühl, Lesbarkeit je Zoomstufe)
-  — Erkenntnisse fließen in 1g/Q1 ein.
-- **Spec für Schritt 1e** (Filter, SignalStore zieht ein) entwerfen.
-- Johannes schreibt eigene Gedanken zum Herzstück (Q1) auf (parallel, eilt
-  erst zu Schritt 1g).
+- **Gemeinsam spielen:** Zoom + Filter kombiniert (Zoomgefühl, Lesbarkeit,
+  Filterwirkung) — Erkenntnisse fließen in 1g/Q1 ein.
+- **Spec für Schritt 1f** (Event-Details bei Klick) entwerfen — bewusst
+  leichter Schritt vor dem Herzstück 1g.
+- Johannes schreibt eigene Gedanken zum Herzstück (Q1) auf — **wird jetzt
+  akut**, 1g rückt näher.
 
 ## Git
 - Branch `main`, Remote `origin` = github.com/JohannesSchacht/history-timeline

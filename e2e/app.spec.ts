@@ -14,6 +14,23 @@ test('App zeigt die echten Ereignisse auf der Zeitachse', async ({ page }) => {
   await expect(page.locator('svg title', { hasText: 'Seeschlacht von Lepanto' })).toHaveCount(1);
 });
 
+test('Filter: Lepanto überlebt eine abgewählte Kategorie, nicht zwei (Spec 1e)', async ({ page }) => {
+  await page.goto('/');
+  const lepanto = page.locator('svg title', { hasText: 'Seeschlacht von Lepanto' });
+  await expect(lepanto).toHaveCount(1);
+
+  // Militär abwählen → Lepanto bleibt (Religion ist noch gewählt, ODER-Semantik)
+  await page.getByRole('checkbox', { name: 'Militär' }).uncheck();
+  await expect(lepanto).toHaveCount(1);
+
+  // Religion zusätzlich abwählen → Lepanto verschwindet, ebenso rein
+  // religiöse Events — aber Kultur-Events bleiben (Filter ist selektiv):
+  await page.getByRole('checkbox', { name: 'Religion' }).uncheck();
+  await expect(lepanto).toHaveCount(0);
+  await expect(page.locator('svg title', { hasText: 'Luthers 95 Thesen' })).toHaveCount(0);
+  await expect(page.locator('svg title', { hasText: 'Michelangelos David' })).toHaveCount(1);
+});
+
 test('Herauszoomen mit dem Mausrad macht die Antike sichtbar (Spec 1d)', async ({ page }) => {
   await page.goto('/');
   const svg = page.locator('svg');

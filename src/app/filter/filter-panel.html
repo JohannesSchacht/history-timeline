@@ -1,0 +1,31 @@
+<fieldset>
+  <legend>Kategorien</legend>
+  @for (category of categories(); track category.id) {
+    <label class="chip">
+      <input
+        type="checkbox"
+        [checked]="isCategorySelected(category.id)"
+        (change)="store.toggleCategory(category.id)"
+      />
+      {{ category.name }}
+    </label>
+  }
+  <span class="group-actions">
+    <button type="button" (click)="store.selectAllCategories()">alle</button>
+    <button type="button" (click)="store.selectNoCategories()">keine</button>
+  </span>
+</fieldset>
+
+<fieldset>
+  <legend>Typen</legend>
+  @for (type of types(); track type.id) {
+    <label class="chip">
+      <input type="checkbox" [checked]="isTypeSelected(type.id)" (change)="store.toggleType(type.id)" />
+      {{ type.name }}
+    </label>
+  }
+  <span class="group-actions">
+    <button type="button" (click)="store.selectAllTypes()">alle</button>
+    <button type="button" (click)="store.selectNoTypes()">keine</button>
+  </span>
+</fieldset>

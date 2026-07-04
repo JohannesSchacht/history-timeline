@@ -1,12 +1,17 @@
 <main class="container">
   <h1>{{ title() }}</h1>
 
-  @if (repo.loading()) {
+  @if (store.loading()) {
     <p role="status">Lade Daten …</p>
-  } @else if (repo.error()) {
-    <p role="alert">{{ repo.error() }}</p>
+  } @else if (store.error()) {
+    <p role="alert">{{ store.error() }}</p>
   } @else {
-    <app-timeline [events]="repo.events()" [viewport]="viewport()" (viewportChange)="viewport.set($event)" />
+    <app-filter-panel />
+    <app-timeline
+      [events]="store.filteredEvents()"
+      [viewport]="store.viewport()"
+      (viewportChange)="store.setViewport($event)"
+    />
   }
 </main>
 

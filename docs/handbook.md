@@ -11,15 +11,28 @@ Die App läuft im Browser, ohne Installation:
 Jede Änderung, die das Projekt auf dem `main`-Branch erreicht, ist nach
 wenigen Minuten automatisch dort sichtbar.
 
-## Was die App zeigt (Stand: Schritt 1d)
+## Was die App zeigt (Stand: Schritt 1e)
 
-Die App zeigt eine **bewegliche Zeitachse** (Start: 1400–1700):
+Die App zeigt eine **bewegliche, filterbare Zeitachse** (Start: 1400–1700):
 
 - **Mausrad** zoomt hinein und heraus — um die Position des Mauszeigers:
   Das Jahr unter dem Zeiger bleibt stehen, die Umgebung dehnt/staucht sich.
 - **Ziehen mit gedrückter Maustaste** verschiebt den Ausschnitt.
 - Der erreichbare Bereich: von der Entstehung der Erde (4,6 Mrd. Jahre,
   Achse zeigt „Mrd./Mio. v. Chr.") bis in einzelne Jahre hinein.
+
+### Filtern
+
+Über der Achse liegen zwei Filtergruppen, **Kategorien** und **Typen**
+(Häkchen an/aus, dazu „alle"/„keine" je Gruppe):
+
+- Ein Ereignis bleibt sichtbar, solange **mindestens eine** seiner
+  Kategorien angehakt ist. Beispiel: Die Seeschlacht von Lepanto gehört zu
+  Militär *und* Religion — sie verschwindet erst, wenn beide abgewählt sind.
+- Der Typ-Filter (Schlacht, Geburt, Vertrag …) wirkt zusätzlich und
+  unabhängig davon.
+- Der Zähler über der Achse zeigt die Wirkung der Filter im aktuellen
+  Ausschnitt.
 
 - **Punkte über der Achse** sind Zeitpunkt-Ereignisse (z. B. die Seeschlacht
   von Lepanto 1571); bei dichtem Gedränge stapeln sie sich nach oben.

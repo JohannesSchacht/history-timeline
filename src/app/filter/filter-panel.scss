@@ -1,0 +1,40 @@
+// Bewusst schlicht (Spec 1e) — Gestaltung ist 1g.
+fieldset {
+  border: 1px solid #d5d9e0;
+  border-radius: 6px;
+  margin: 0 0 0.6rem;
+  padding: 0.4rem 0.8rem 0.6rem;
+
+  legend {
+    font-size: 0.8rem;
+    color: #666;
+    padding: 0 0.3rem;
+  }
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-right: 0.9rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.group-actions {
+  margin-left: 0.5rem;
+
+  button {
+    font-size: 0.75rem;
+    margin-right: 0.3rem;
+    padding: 0.1rem 0.5rem;
+    border: 1px solid #c5cbd4;
+    border-radius: 4px;
+    background: #f6f7f9;
+    cursor: pointer;
+
+    &:hover {
+      background: #e9ecf0;
+    }
+  }
+}

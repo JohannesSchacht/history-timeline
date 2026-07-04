@@ -31,3 +31,6 @@ Je Eintrag: Entscheidung — kurze Begründung. (Zeitstempel trägt die Git-Hist
 - **`HistoricalEvent` statt `Event`** — das Spec-Interface hieß `Event`, kollidiert aber mit dem DOM-`Event` (jeder UI-Handler). Dokumentierte Abweichung in 1b.
 - **Eigenes Datumsformat `{year, month?, day?}`** mit negativen Jahren für v. Chr. — kein JS-`Date` (kann v. Chr./Kalenderwechsel nicht sauber).
 - **Beispieldatensatz: Europa 1450–1650 + Anker** (Thermopylen, Röm. Reich, 1. WK, Mondlandung) — bewusst „gemein": Cluster, lange Spannen, Mehrkategorien, circa, 0/1/n Orte.
+- **Filter: ODER-Semantik über Kategorien, UND mit Typ-Filter** — Lepanto verschwindet erst, wenn Militär UND Religion abgewählt sind (erkunder-freundlich). Baum-Semantik von Anfang an (gewählter Knoten schließt Nachfahren ein).
+- **Kein separater Zeitraum-Filter in Stufe 1** — der zoombare Viewport (1d) IST die Zeitauswahl des Erkunders. Rückholpunkt für Persona B.
+- **SignalStore eingezogen (1e):** `TimelineStore` hält UI-Zustand (Viewport, Filterauswahl, filteredEvents); `EventRepository` bleibt darunter unangetastet. Installiert als v21 mit `--legacy-peer-deps` unter Angular 22 (Rückholpunkt: v22 sobald erschienen).
