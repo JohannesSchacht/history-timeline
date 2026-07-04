@@ -23,6 +23,11 @@ Beschreibungen erkennen, Umklassifizierung nach Split/Merge)? Wer kuratiert?
 Grundsatz ist entschieden (iterativ, s. decisions.md) — die Werkzeuge/Abläufe
 dafür entstehen nach Hands-on.
 
+## Q5 — Barrierefreie Timeline-Erkundung
+Kann man die SVG-Timeline ohne Maus (Tastatur/Screenreader) erkunden?
+AXE prüft nur Basics (role/label). Echte Antwort wäre ein Designthema —
+bewusst geparkt; relevant frühestens, wenn die App öffentlich wird (Nordstern).
+
 ## Q2 — Zielnutzer & Zweck  (teilweise entschieden)
 Start mit **Persona A (Erkunder)** — neugierig/lernend, „was passierte
 gleichzeitig?". B (Rechercheur) und C (kuratierte Story) sind spätere Ziele,

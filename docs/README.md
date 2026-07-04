@@ -13,14 +13,16 @@
 - Vision, Datenmodell-Kern (Event/Place, categories[], Taxonomie iterativ,
   Komposition geparkt), Architektur (Stufe 1 frontend-only, EventRepository-
   Regel, SVG-Eigenbau) und Stack sind abgestimmt.
-- Roadmap 1a–1g liegt als Entwurf vor; Johannes lernt die Schritte gerade kennen.
-- Noch kein Angular-Code — Start mit 1a (Walking Skeleton) steht bevor.
+- **Test-Strategie abgestimmt** (`testing.md`, destilliert aus
+  `Testing-Long-Spec.md`): L1/L2/L3, kein MSW bis Stufe 3, Tiers P/C/T,
+  Layout als reine Funktionen, AXE leichte Pflicht, Coverage-Boden ~80 %.
+- Glossar angelegt (u.a. Ausbaustufe vs. Schritt).
+- Noch kein Angular-Code — Start mit Schritt 1a (Walking Skeleton) steht bevor.
 
 ## Nächste Schritte
-- Johannes liefert ein **Testkonzept** aus einem anderen Projekt nach
-  (Ausgangsbasis fürs Testen, neben vorhandenen Playwright-Skills).
-- Johannes schreibt eigene Gedanken zum Herzstück (Q1) auf.
-- Danach: 1a starten (Spec zuerst, gemäß Bau-Zyklus).
+- **Spec für Schritt 1a** entwerfen (Bau-Zyklus: Spec → Code+Tests → Handbuch).
+- Johannes schreibt eigene Gedanken zum Herzstück (Q1) auf (parallel, eilt
+  erst zu Schritt 1g).
 
 ## Git
 - Branch `main`, Remote `origin` = github.com/JohannesSchacht/history-timeline

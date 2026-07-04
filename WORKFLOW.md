@@ -40,7 +40,7 @@ Detail-Spezifikationen (Datenmodell, Feature-Specs, Backlog) entstehen
 
 - [x] `WORKFLOW.md` — steht
 - [x] `docs/vision.md` — abgestimmtes Grobbild
-- [ ] `docs/glossary.md` — noch offen (bei Bedarf aus Q1 ableiten)
+- [x] `docs/glossary.md` — angelegt (Struktur-, Fachmodell-, Technik-Begriffe)
 - [x] `docs/decisions.md` — angelegt, wächst laufend
 - [x] `docs/open-questions.md` — angelegt, wächst laufend
 - [x] `docs/README.md` — angelegt (Stand + nächste Schritte)

@@ -20,3 +20,9 @@ Je Eintrag: Entscheidung — kurze Begründung. (Zeitstempel trägt die Git-Hist
 - **Handbuch = Nutzerhandbuch** (`docs/handbook.md`) — wächst je Bau-Schritt. Entwickler-Wissen lebt in CLAUDE.md + Code.
 - **Testkonzept: kommt von Johannes** aus einem anderen Projekt (Ausgangsbasis neben den vorhandenen Playwright-Skills). Test-Setup in 1a bewusst minimal halten.
 - **Commit/Push: KI darf an sinnvollen Checkpoints selbst committen und pushen** (Doku-Stände, abgeschlossene Schritte) — von Johannes freigegeben („zwischendurch").
+- **Test-Strategie: Destillat aus `Testing-Long-Spec.md`** (eigenes Dokument `testing.md`; die Quelle bleibt unverändert als Referenz). Drei Schichten L1/L2/L3, hermetisch by construction.
+- **MSW erst mit Ausbaustufe 3** — in Stufe 1 gibt es keine HTTP-Grenze, die sich zu mocken lohnt; Fake-`EventRepository` per DI. Rückholpunkt dokumentiert.
+- **Tier-Prinzip geschrumpft auf P/C/T** — neue Komponentensorten (Dialog, Tastatur-Nav) werden bei Bedarf aus dem Quell-Katalog nachdestilliert.
+- **Layout-Logik als reine Funktionen** — Geometrie (Zeit↔Pixel, Zoom, Anordnung) getrennt vom SVG-Rendering: `(Events, Viewport) → Positionen`. Macht das Herzstück auf L1 testbar und Layout-Strategien austauschbar (Q1/Q1b).
+- **AXE als leichte Pflicht** — eine Prüfung je Komponente; für die Timeline nur Basics (role/label), echte SVG-Erkundbarkeit geparkt (Q5).
+- **Coverage: nur ein globaler Boden (~80 % Statements)** — kein Ratcheting, keine Bereichs-Matrix; inhaltliche Qualität sichert die Definition-of-Done.
