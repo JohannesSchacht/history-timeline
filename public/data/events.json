@@ -1,5 +1,89 @@
 [
   {
+    "id": "ev-entstehung-erde",
+    "title": "Entstehung der Erde",
+    "start": { "year": -4600000000 },
+    "precision": "circa",
+    "type": "typ-ereignis",
+    "categories": ["cat-natur"],
+    "placeIds": [],
+    "description": "Die Erde bildet sich aus der protoplanetaren Scheibe — der äußerste Anker der Zeitachse (~4,6 Mrd. Jahre)."
+  },
+  {
+    "id": "ev-praekambrium",
+    "title": "Präkambrium",
+    "start": { "year": -4600000000 },
+    "end": { "year": -541000000 },
+    "precision": "circa",
+    "type": "typ-epoche",
+    "categories": ["cat-natur"],
+    "placeIds": [],
+    "description": "Rund 88 % der Erdgeschichte: von der Erdentstehung bis zur Kambrischen Explosion."
+  },
+  {
+    "id": "ev-kambrische-explosion",
+    "title": "Kambrische Explosion",
+    "start": { "year": -541000000 },
+    "precision": "circa",
+    "type": "typ-ereignis",
+    "categories": ["cat-natur"],
+    "placeIds": [],
+    "description": "Plötzliche Entfaltung vielzelligen Lebens — Punkt-Event exakt an einer Epochengrenze."
+  },
+  {
+    "id": "ev-palaeozoikum",
+    "title": "Paläozoikum (Erdaltertum)",
+    "start": { "year": -541000000 },
+    "end": { "year": -252000000 },
+    "precision": "circa",
+    "type": "typ-epoche",
+    "categories": ["cat-natur"],
+    "placeIds": [],
+    "description": "Vom Kambrium bis zum größten Massenaussterben der Erdgeschichte (Perm-Trias-Grenze)."
+  },
+  {
+    "id": "ev-mesozoikum",
+    "title": "Mesozoikum (Erdmittelalter)",
+    "start": { "year": -252000000 },
+    "end": { "year": -66000000 },
+    "precision": "circa",
+    "type": "typ-epoche",
+    "categories": ["cat-natur"],
+    "placeIds": [],
+    "description": "Das Zeitalter der Dinosaurier: Trias, Jura, Kreide."
+  },
+  {
+    "id": "ev-kt-einschlag",
+    "title": "Chicxulub-Einschlag — Ende der Dinosaurier",
+    "start": { "year": -66000000 },
+    "precision": "circa",
+    "type": "typ-ereignis",
+    "categories": ["cat-natur"],
+    "placeIds": [],
+    "description": "Asteroideneinschlag an der Kreide-Paläogen-Grenze — Punkt-Event am Epochenwechsel."
+  },
+  {
+    "id": "ev-kaenozoikum",
+    "title": "Känozoikum (Erdneuzeit)",
+    "start": { "year": -66000000 },
+    "end": { "year": 2026 },
+    "precision": "circa",
+    "type": "typ-epoche",
+    "categories": ["cat-natur"],
+    "placeIds": [],
+    "description": "Das Zeitalter der Säugetiere — bis heute (offenes Ende, pragmatisch als 2026 modelliert, s. open-questions Q6)."
+  },
+  {
+    "id": "ev-homo-sapiens",
+    "title": "Erste Homo sapiens",
+    "start": { "year": -300000 },
+    "precision": "circa",
+    "type": "typ-ereignis",
+    "categories": ["cat-natur"],
+    "placeIds": [],
+    "description": "Früheste Fossilfunde des anatomisch modernen Menschen (Jebel Irhoud, Marokko)."
+  },
+  {
     "id": "ev-schlacht-thermopylen",
     "title": "Schlacht bei den Thermopylen",
     "start": { "year": -480 },
