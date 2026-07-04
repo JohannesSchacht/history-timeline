@@ -34,10 +34,10 @@ Pragmatisch als `end: 2026` modelliert. Sauber wäre ein Konzept für offene
 Enden (z. B. `end: "ongoing"`) — entscheiden, wenn die Darstellung (1c/1g)
 zeigt, wie sich solche Spannen anfühlen sollen.
 
-## Q7 — Anzeige sehr großer Jahreszahlen
-`formatYear(-4600000000)` liefert „4600000000 v. Chr." — funktional, aber
-unlesbar. Die Achse braucht ab 1c eine größenabhängige Formatierung
-(„4,6 Mrd. Jahre", „541 Mio. Jahre", „480 v. Chr.").
+## Q7 — Anzeige sehr großer Jahreszahlen ✓ GELÖST (1d)
+`formatAxisYear` formatiert größenabhängig („4,6 Mrd. v. Chr.",
+„66 Mio. v. Chr.", „300.000 v. Chr.", „1571"). Achse nutzt sie; Tooltips
+behalten das exakte Jahr.
 
 ## Q2 — Zielnutzer & Zweck  (teilweise entschieden)
 Start mit **Persona A (Erkunder)** — neugierig/lernend, „was passierte

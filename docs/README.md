@@ -24,15 +24,17 @@
   Place, Taxonomie), `EventRepository` (abstrakt) + JSON-Implementierung,
   Fixtures + Fake-Repo, Datenvertrags-Test, Beispieldatensatz
   (57 Events: Erdzeitalter bis Mondlandung, Kern Europa 1450–1650).
-- **Schritt 1c (statische Timeline):** `layoutTimeline` als reine Funktionen
-  (Jahresbruchteile, Viewport-Kappung, Greedy-Lane-Packing, Ticks),
-  SVG-Timeline-Komponente (Kategorie T), fester Ausschnitt 1400–1700.
-  42 Unit-Tests + 2 e2e.
+- **Schritt 1c (statische Timeline):** `layoutTimeline` als reine Funktionen,
+  SVG-Timeline-Komponente (Kategorie T).
+- **Schritt 1d (Zoom & Pan):** Wheel-Zoom um den Cursor (Fokus-Invariante,
+  L1-getestet), Pointer-Drag-Pan, Viewport als Signal, Grenzen
+  (1 Jahr … ±5 Mrd.), `formatAxisYear` löst Q7. 61 Unit-Tests + 3 e2e.
+  Zoomfaktor-Feintuning ggf. nach Erspielen.
 
 ## Nächste Schritte
-- **Spec für Schritt 1d** (Zoom & Pan) entwerfen — Viewport wird beweglich
-  (Signal), Achsenbeschriftung dynamisch (dort werden Q7/große Zahlen und
-  die Erdzeitalter praktisch relevant).
+- **Gemeinsam mit der Achse spielen** (Zoomgefühl, Lesbarkeit je Zoomstufe)
+  — Erkenntnisse fließen in 1g/Q1 ein.
+- **Spec für Schritt 1e** (Filter, SignalStore zieht ein) entwerfen.
 - Johannes schreibt eigene Gedanken zum Herzstück (Q1) auf (parallel, eilt
   erst zu Schritt 1g).
 

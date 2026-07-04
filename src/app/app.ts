@@ -16,7 +16,8 @@ export const DEFAULT_VIEWPORT: Viewport = { startYear: 1400, endYear: 1700, widt
 export class App {
   protected readonly title = signal('history-timeline');
   protected readonly repo = inject(EventRepository);
-  protected readonly viewport = DEFAULT_VIEWPORT;
+  /** Der bewegliche Ausschnitt (Spec 1d): Timeline meldet Änderungen, App hält den State. */
+  protected readonly viewport = signal<Viewport>(DEFAULT_VIEWPORT);
 
   constructor() {
     void this.repo.load();

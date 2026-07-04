@@ -6,7 +6,7 @@
   } @else if (repo.error()) {
     <p role="alert">{{ repo.error() }}</p>
   } @else {
-    <app-timeline [events]="repo.events()" [viewport]="viewport" />
+    <app-timeline [events]="repo.events()" [viewport]="viewport()" (viewportChange)="viewport.set($event)" />
   }
 </main>
 

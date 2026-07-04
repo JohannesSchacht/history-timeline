@@ -38,6 +38,15 @@ describe('tickStep / buildTicks', () => {
     expect(ticks[0].x).toBe(0);
     expect(ticks[ticks.length - 1].x).toBe(1000);
   });
+
+  it('beschriftet erdgeschichtliche Spannen lesbar (Q7)', () => {
+    const erdgeschichte: Viewport = { startYear: -4_600_000_000, endYear: 2026, widthPx: 1000 };
+    const ticks = buildTicks(erdgeschichte);
+    expect(ticks.length).toBeGreaterThan(2);
+    expect(ticks.length).toBeLessThanOrEqual(10);
+    expect(ticks.map((t) => t.label)).toContain('4 Mrd. v. Chr.');
+    expect(ticks.map((t) => t.label)).toContain('1 Mrd. v. Chr.');
+  });
 });
 
 describe('layoutTimeline', () => {

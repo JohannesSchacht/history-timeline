@@ -15,11 +15,12 @@ const viewport: Viewport = { startYear: 1400, endYear: 1700, widthPx: 1000 };
 
 @Component({
   imports: [Timeline],
-  template: `<app-timeline [events]="events" [viewport]="viewport" />`,
+  template: `<app-timeline [events]="events" [viewport]="viewport" (viewportChange)="changes.push($event)" />`,
 })
 class Host {
   events: readonly HistoricalEvent[] = [];
   viewport = viewport;
+  changes: Viewport[] = [];
 }
 
 describe('Timeline', () => {
@@ -71,5 +72,43 @@ describe('Timeline', () => {
     expect(svg?.getAttribute('role')).toBe('img');
     expect(svg?.getAttribute('aria-label')).toContain('Zeitachse 1400 bis 1700');
     await expectNoAxeViolations(host);
+  });
+
+  // Interaktion (Spec 1d). jsdom hat kein Layout (rect.width 0) → die
+  // Komponente fällt auf Maßstab 1 zurück: clientX ≡ viewBox-Einheiten.
+  describe('Interaktion', () => {
+    it('Wheel nach vorn zoomt hinein und hält das Jahr unter dem Cursor fest', async () => {
+      const { fixture, host } = await setup([lepanto]);
+      const svg = host.querySelector('svg') as SVGSVGElement;
+      const cursorX = 500; // = viewBox 500 → Jahr 1550
+      svg.dispatchEvent(new WheelEvent('wheel', { deltaY: -100, clientX: cursorX, cancelable: true }));
+      const emitted = fixture.componentInstance.changes.at(-1);
+      expect(emitted).toBeDefined();
+      const span = emitted!.endYear - emitted!.startYear;
+      expect(span).toBeLessThan(300); // hineingezoomt
+      // Fokus-Invariante: Jahr 1550 liegt weiterhin bei x=500
+      expect(yearToX(1550, emitted!)).toBeCloseTo(500, 4);
+    });
+
+    it('Wheel zurück zoomt heraus', async () => {
+      const { fixture, host } = await setup([lepanto]);
+      const svg = host.querySelector('svg') as SVGSVGElement;
+      svg.dispatchEvent(new WheelEvent('wheel', { deltaY: 100, clientX: 500, cancelable: true }));
+      const emitted = fixture.componentInstance.changes.at(-1);
+      expect(emitted!.endYear - emitted!.startYear).toBeGreaterThan(300);
+    });
+
+    it('Pointer-Drag nach rechts schwenkt in frühere Jahre', async () => {
+      const { fixture, host } = await setup([lepanto]);
+      const svg = host.querySelector('svg') as SVGSVGElement;
+      svg.setPointerCapture = () => {}; // jsdom kennt Pointer-Capture nicht
+      svg.releasePointerCapture = () => {};
+      svg.dispatchEvent(new PointerEvent('pointerdown', { pointerId: 1, clientX: 400 }));
+      svg.dispatchEvent(new PointerEvent('pointermove', { pointerId: 1, clientX: 500 }));
+      svg.dispatchEvent(new PointerEvent('pointerup', { pointerId: 1, clientX: 500 }));
+      const emitted = fixture.componentInstance.changes.at(-1);
+      expect(emitted!.startYear).toBeCloseTo(1370, 4); // 100 Einheiten = 30 Jahre zurück
+      expect(emitted!.endYear - emitted!.startYear).toBeCloseTo(300, 6);
+    });
   });
 });

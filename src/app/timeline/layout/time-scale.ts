@@ -20,3 +20,9 @@ export function yearToX(year: number, viewport: Viewport): number {
   const { startYear, endYear, widthPx } = viewport;
   return ((year - startYear) / (endYear - startYear)) * widthPx;
 }
+
+/** Umkehrung von yearToX: x-Position → Jahr (für Zoom um den Cursor). */
+export function xToYear(x: number, viewport: Viewport): number {
+  const { startYear, endYear, widthPx } = viewport;
+  return startYear + (x / widthPx) * (endYear - startYear);
+}

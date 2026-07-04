@@ -1,5 +1,6 @@
-import { HistoricalDate, HistoricalEvent, formatYear } from '../../data/model';
+import { HistoricalDate, HistoricalEvent } from '../../data/model';
 import { Viewport, yearToX } from './time-scale';
+import { formatAxisYear } from './viewport-controls';
 
 /**
  * Reine Layout-Funktionen der Timeline (Spec 1c, testing.md Kategorie T):
@@ -84,7 +85,7 @@ export function buildTicks(viewport: Viewport): Tick[] {
   const first = Math.ceil(viewport.startYear / step) * step;
   const ticks: Tick[] = [];
   for (let year = first; year <= viewport.endYear; year += step) {
-    ticks.push({ x: yearToX(year, viewport), label: formatYear(year) });
+    ticks.push({ x: yearToX(year, viewport), label: formatAxisYear(year) });
   }
   return ticks;
 }

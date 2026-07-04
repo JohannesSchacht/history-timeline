@@ -1,10 +1,16 @@
 <p class="count">{{ layout().visibleCount }} von {{ events().length }} Ereignissen im Ausschnitt.</p>
 
 <svg
+  #svgRoot
   [attr.viewBox]="'0 0 ' + viewport().widthPx + ' ' + layout().height"
   role="img"
   [attr.aria-label]="ariaLabel()"
   class="timeline-svg"
+  [class.dragging]="dragging()"
+  (wheel)="onWheel($event)"
+  (pointerdown)="onPointerDown($event)"
+  (pointermove)="onPointerMove($event)"
+  (pointerup)="onPointerUp($event)"
 >
   <!-- Achse -->
   <line class="axis" [attr.x1]="0" [attr.y1]="layout().axisY" [attr.x2]="viewport().widthPx" [attr.y2]="layout().axisY" />

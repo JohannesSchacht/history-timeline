@@ -11,9 +11,15 @@ Die App läuft im Browser, ohne Installation:
 Jede Änderung, die das Projekt auf dem `main`-Branch erreicht, ist nach
 wenigen Minuten automatisch dort sichtbar.
 
-## Was die App zeigt (Stand: Schritt 1c)
+## Was die App zeigt (Stand: Schritt 1d)
 
-Die App zeigt eine **Zeitachse von 1400 bis 1700** (fester Ausschnitt):
+Die App zeigt eine **bewegliche Zeitachse** (Start: 1400–1700):
+
+- **Mausrad** zoomt hinein und heraus — um die Position des Mauszeigers:
+  Das Jahr unter dem Zeiger bleibt stehen, die Umgebung dehnt/staucht sich.
+- **Ziehen mit gedrückter Maustaste** verschiebt den Ausschnitt.
+- Der erreichbare Bereich: von der Entstehung der Erde (4,6 Mrd. Jahre,
+  Achse zeigt „Mrd./Mio. v. Chr.") bis in einzelne Jahre hinein.
 
 - **Punkte über der Achse** sind Zeitpunkt-Ereignisse (z. B. die Seeschlacht
   von Lepanto 1571); bei dichtem Gedränge stapeln sie sich nach oben.

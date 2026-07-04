@@ -13,3 +13,17 @@ test('App zeigt die echten Ereignisse auf der Zeitachse', async ({ page }) => {
   // Lepanto liegt im Start-Ausschnitt und muss als Marker mit Tooltip da sein:
   await expect(page.locator('svg title', { hasText: 'Seeschlacht von Lepanto' })).toHaveCount(1);
 });
+
+test('Herauszoomen mit dem Mausrad macht die Antike sichtbar (Spec 1d)', async ({ page }) => {
+  await page.goto('/');
+  const svg = page.locator('svg');
+  await expect(svg).toBeVisible();
+  // Thermopylen (480 v. Chr.) liegt außerhalb des Start-Ausschnitts:
+  await expect(page.locator('svg title', { hasText: 'Thermopylen' })).toHaveCount(0);
+
+  await svg.hover(); // Cursor über die Timeline, dann herauszoomen
+  for (let i = 0; i < 10; i++) {
+    await page.mouse.wheel(0, 500);
+  }
+  await expect(page.locator('svg title', { hasText: 'Thermopylen' })).toHaveCount(1);
+});
