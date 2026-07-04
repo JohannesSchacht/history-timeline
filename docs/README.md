@@ -22,12 +22,17 @@
   Live-URL: https://johannesschacht.github.io/history-timeline/
 - **Schritt 1b (Datenmodell + Repository):** Modell (`HistoricalEvent`,
   Place, Taxonomie), `EventRepository` (abstrakt) + JSON-Implementierung,
-  Fixtures + Fake-Repo, Datenvertrags-Test gegen die echten JSONs,
-  Beispieldatensatz (49 Events, Europa 1450–1650 + Anker), schlichte Listen-UI.
+  Fixtures + Fake-Repo, Datenvertrags-Test, Beispieldatensatz
+  (57 Events: Erdzeitalter bis Mondlandung, Kern Europa 1450–1650).
+- **Schritt 1c (statische Timeline):** `layoutTimeline` als reine Funktionen
+  (Jahresbruchteile, Viewport-Kappung, Greedy-Lane-Packing, Ticks),
+  SVG-Timeline-Komponente (Kategorie T), fester Ausschnitt 1400–1700.
+  42 Unit-Tests + 2 e2e.
 
 ## Nächste Schritte
-- **Spec für Schritt 1c** (statische Timeline, SVG) entwerfen — ab hier
-  wird die Layout-Geometrie (`timeline/layout/`) ernst.
+- **Spec für Schritt 1d** (Zoom & Pan) entwerfen — Viewport wird beweglich
+  (Signal), Achsenbeschriftung dynamisch (dort werden Q7/große Zahlen und
+  die Erdzeitalter praktisch relevant).
 - Johannes schreibt eigene Gedanken zum Herzstück (Q1) auf (parallel, eilt
   erst zu Schritt 1g).
 

@@ -1,0 +1,45 @@
+<p class="count">{{ layout().visibleCount }} von {{ events().length }} Ereignissen im Ausschnitt.</p>
+
+<svg
+  [attr.viewBox]="'0 0 ' + viewport().widthPx + ' ' + layout().height"
+  role="img"
+  [attr.aria-label]="ariaLabel()"
+  class="timeline-svg"
+>
+  <!-- Achse -->
+  <line class="axis" [attr.x1]="0" [attr.y1]="layout().axisY" [attr.x2]="viewport().widthPx" [attr.y2]="layout().axisY" />
+
+  <!-- Ticks -->
+  @for (tick of layout().ticks; track tick.x) {
+    <line class="tick" [attr.x1]="tick.x" [attr.y1]="layout().axisY - 4" [attr.x2]="tick.x" [attr.y2]="layout().axisY + 4" />
+    <text
+      class="tick-label"
+      [attr.x]="tick.x"
+      [attr.y]="layout().axisY + 16"
+      [attr.text-anchor]="tick.x === 0 ? 'start' : tick.x === viewport().widthPx ? 'end' : 'middle'"
+    >
+      {{ tick.label }}
+    </text>
+  }
+
+  <!-- Zeitspannen als Balken unter der Achse -->
+  @for (span of layout().spans; track span.event.id) {
+    <g class="span">
+      <rect [attr.x]="span.x1" [attr.y]="span.y" [attr.width]="span.x2 - span.x1" [attr.height]="LAYOUT.spanHeight" rx="2">
+        <title>{{ tooltip(span.event) }}</title>
+      </rect>
+      <text class="span-label" [attr.x]="span.x1 + 3" [attr.y]="span.y + LAYOUT.spanHeight - 2">{{ span.event.title }}</text>
+    </g>
+  }
+
+  <!-- Zeitpunkte als Punkte über der Achse -->
+  @for (point of layout().points; track point.event.id) {
+    <g class="point">
+      <line class="point-stem" [attr.x1]="point.x" [attr.y1]="point.y" [attr.x2]="point.x" [attr.y2]="layout().axisY" />
+      <circle [attr.cx]="point.x" [attr.cy]="point.y" [attr.r]="LAYOUT.pointRadius">
+        <title>{{ tooltip(point.event) }}</title>
+      </circle>
+      <text class="point-label" [attr.x]="point.x + 6" [attr.y]="point.y + 3">{{ point.event.title }}</text>
+    </g>
+  }
+</svg>

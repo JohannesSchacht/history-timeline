@@ -33,20 +33,18 @@ describe('App', () => {
     expect(host.querySelector('h1')?.textContent).toContain('history-timeline');
   });
 
-  it('zeigt die geladenen Ereignisse als Liste', async () => {
+  it('zeigt die geladenen Ereignisse auf der Timeline (im 1400–1700-Ausschnitt)', async () => {
     const { host } = await setup();
-    expect(host.textContent).toContain('2 Ereignisse geladen');
-    const items = [...host.querySelectorAll('.event-list li')].map((li) => li.textContent);
-    expect(items[0]).toContain('Seeschlacht von Lepanto');
-    expect(items[0]).toContain('1571');
-    expect(items[1]).toContain('27 v. Chr.'); // formatYear + Spanne
-    expect(items[1]).toContain('476');
+    // Lepanto (1571) liegt im Ausschnitt, das Römische Kaiserreich (-27–476) nicht:
+    expect(host.querySelector('.count')?.textContent).toContain('1 von 2 Ereignissen');
+    expect(host.querySelectorAll('.point circle')).toHaveLength(1);
+    expect(host.querySelector('svg')).not.toBeNull();
   });
 
   it('zeigt den Fehlerzustand als role=alert', async () => {
     const { host } = await setup(new FakeEventRepository({ failOnLoad: true }));
     expect(host.querySelector('[role="alert"]')?.textContent).toContain('Daten konnten nicht geladen werden');
-    expect(host.querySelector('.event-list')).toBeNull();
+    expect(host.querySelector('svg')).toBeNull();
   });
 
   it('besteht die AXE-Prüfung (geladener Zustand)', async () => {

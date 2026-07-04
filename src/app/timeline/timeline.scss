@@ -1,0 +1,49 @@
+// Bewusst neutral (Spec 1c: einfarbig, korrekt statt schön). Farben sind 1g/Q1a.
+.count {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.timeline-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  .axis {
+    stroke: #333;
+    stroke-width: 1.5;
+  }
+
+  .tick {
+    stroke: #333;
+    stroke-width: 1;
+  }
+
+  .tick-label {
+    font-size: 11px;
+    fill: #333;
+  }
+
+  .span rect {
+    fill: #7a8ba6;
+  }
+
+  .span-label {
+    font-size: 8px;
+    fill: #fff;
+  }
+
+  .point circle {
+    fill: #4a5d78;
+  }
+
+  .point-stem {
+    stroke: #c5cbd4;
+    stroke-width: 1;
+  }
+
+  .point-label {
+    font-size: 8px;
+    fill: #555;
+  }
+}

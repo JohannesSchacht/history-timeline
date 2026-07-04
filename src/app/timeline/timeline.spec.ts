@@ -1,0 +1,75 @@
+import { TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { HistoricalEvent } from '../data/model';
+import { expectNoAxeViolations } from '../testing/axe.testing';
+import { makeEvent } from '../testing/fixtures';
+import { Viewport, yearToX } from './layout/time-scale';
+import { Timeline } from './timeline';
+
+/**
+ * L2, Kategorie T (testing.md): Die Geometrie ist in layout/ L1-getestet —
+ * hier prüfen wir nur, dass berechnete Positionen als SVG-Attribute im DOM
+ * ankommen, plus AXE-Basics (role/label).
+ */
+const viewport: Viewport = { startYear: 1400, endYear: 1700, widthPx: 1000 };
+
+@Component({
+  imports: [Timeline],
+  template: `<app-timeline [events]="events" [viewport]="viewport" />`,
+})
+class Host {
+  events: readonly HistoricalEvent[] = [];
+  viewport = viewport;
+}
+
+describe('Timeline', () => {
+  async function setup(events: HistoricalEvent[]) {
+    await TestBed.configureTestingModule({ imports: [Host] }).compileComponents();
+    const fixture = TestBed.createComponent(Host);
+    fixture.componentInstance.events = events;
+    await fixture.whenStable();
+    fixture.detectChanges();
+    return { fixture, host: fixture.nativeElement as HTMLElement };
+  }
+
+  const lepanto = makeEvent({
+    id: 'ev-lepanto',
+    title: 'Seeschlacht von Lepanto',
+    start: { year: 1571, month: 10, day: 7 },
+  });
+  const italienischeKriege = makeEvent({
+    id: 'ev-ital',
+    title: 'Italienische Kriege',
+    start: { year: 1494 },
+    end: { year: 1559 },
+  });
+
+  it('zeichnet einen Zeitpunkt als circle an der berechneten x-Position', async () => {
+    const { host } = await setup([lepanto]);
+    const circle = host.querySelector('.point circle');
+    const cx = Number(circle?.getAttribute('cx'));
+    expect(cx).toBeCloseTo(yearToX(1571 + 9 / 12 + 6 / 372, viewport), 0);
+  });
+
+  it('zeichnet eine Zeitspanne als rect mit korrekter Breite', async () => {
+    const { host } = await setup([italienischeKriege]);
+    const rect = host.querySelector('.span rect');
+    expect(Number(rect?.getAttribute('x'))).toBeCloseTo(yearToX(1494, viewport), 5);
+    const width = Number(rect?.getAttribute('width'));
+    expect(width).toBeCloseTo(yearToX(1559, viewport) - yearToX(1494, viewport), 5);
+  });
+
+  it('zeigt Zähler und Tooltip-title', async () => {
+    const { host } = await setup([lepanto, italienischeKriege, makeEvent({ id: 'weit-weg', start: { year: -480 } })]);
+    expect(host.querySelector('.count')?.textContent).toContain('2 von 3 Ereignissen');
+    expect(host.querySelector('.point circle title')?.textContent).toContain('Seeschlacht von Lepanto (1571)');
+  });
+
+  it('hat role=img und ein sprechendes aria-label (AXE-Basics)', async () => {
+    const { host } = await setup([lepanto]);
+    const svg = host.querySelector('svg');
+    expect(svg?.getAttribute('role')).toBe('img');
+    expect(svg?.getAttribute('aria-label')).toContain('Zeitachse 1400 bis 1700');
+    await expectNoAxeViolations(host);
+  });
+});

@@ -11,13 +11,22 @@ Die App läuft im Browser, ohne Installation:
 Jede Änderung, die das Projekt auf dem `main`-Branch erreicht, ist nach
 wenigen Minuten automatisch dort sichtbar.
 
-## Was die App zeigt (Stand: Schritt 1b)
+## Was die App zeigt (Stand: Schritt 1c)
 
-Die App lädt einen kuratierten Beispieldatensatz (57 Ereignisse: Schwerpunkt
-Europa 1450–1650, dazu Anker von der Entstehung der Erde über die
-Erdzeitalter und die Antike bis zur Mondlandung) und zeigt ihn als schlichte
-Liste: Jahr(e) und Titel je Ereignis, inklusive v.-Chr.-Datierungen und
-Zeitspannen. Die grafische Zeitachse folgt in Schritt 1c.
+Die App zeigt eine **Zeitachse von 1400 bis 1700** (fester Ausschnitt):
+
+- **Punkte über der Achse** sind Zeitpunkt-Ereignisse (z. B. die Seeschlacht
+  von Lepanto 1571); bei dichtem Gedränge stapeln sie sich nach oben.
+- **Balken unter der Achse** sind Zeitspannen (z. B. der Dreißigjährige
+  Krieg); Spannen, die über den Ausschnitt hinausreichen, laufen bis zum Rand.
+- **Mauszeiger über einem Marker** zeigt Titel und Jahr(e).
+- Die Zeile über der Achse nennt, wie viele der geladenen Ereignisse im
+  Ausschnitt sichtbar sind.
+
+Der Datensatz (57 Ereignisse) reicht von der Entstehung der Erde bis zur
+Mondlandung; außerhalb des Ausschnitts liegende Ereignisse werden mit dem
+Zoom (Schritt 1d) erreichbar. Beschriftungen dürfen sich derzeit noch
+überlappen — die optische Gestaltung ist Schritt 1g.
 
 Die Daten liegen als JSON-Dateien im Repository (`public/data/`) und können
 dort gepflegt werden; ein automatischer Test validiert sie bei jedem Push.
