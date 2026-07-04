@@ -1,12 +1,29 @@
-# Node / Angular (kommt später)
-node_modules/
-dist/
-.angular/
+# Compiled output
+/dist
+/tmp
+/out-tsc
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
 *.log
 
-# Editor / OS
-.vscode/*
-!.vscode/extensions.json
+# Angular / Tests
+/.angular/cache
+/coverage
+/test-results
+/playwright-report
+
+# IDEs and editors
 .idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# System files
 .DS_Store
 Thumbs.db

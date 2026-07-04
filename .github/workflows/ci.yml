@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Pipeline (Spec 1a): lint → unit-tests (Coverage) → e2e → build → Deploy Pages
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit-Tests (mit Coverage-Messung, noch ohne Schwelle)
+        run: npx ng test --coverage --coverage-reporters text-summary
+
+      - name: Playwright-Browser installieren
+        run: npx playwright install chromium --with-deps
+
+      - name: e2e (gegen Produktions-Build)
+        run: npm run e2e
+
+      - name: Build für GitHub Pages
+        run: npx ng build --base-href /history-timeline/
+
+      - name: Pages konfigurieren
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Pages-Artefakt hochladen
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/history-timeline/browser
+
+      - name: Auf GitHub Pages deployen
+        id: deployment
+        uses: actions/deploy-pages@v4

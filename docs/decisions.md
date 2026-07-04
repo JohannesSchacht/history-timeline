@@ -26,3 +26,5 @@ Je Eintrag: Entscheidung — kurze Begründung. (Zeitstempel trägt die Git-Hist
 - **Layout-Logik als reine Funktionen** — Geometrie (Zeit↔Pixel, Zoom, Anordnung) getrennt vom SVG-Rendering: `(Events, Viewport) → Positionen`. Macht das Herzstück auf L1 testbar und Layout-Strategien austauschbar (Q1/Q1b).
 - **AXE als leichte Pflicht** — eine Prüfung je Komponente; für die Timeline nur Basics (role/label), echte SVG-Erkundbarkeit geparkt (Q5).
 - **Coverage: nur ein globaler Boden (~80 % Statements)** — kein Ratcheting, keine Bereichs-Matrix; inhaltliche Qualität sichert die Definition-of-Done.
+- **Angular 22** (`ng new`-Stand bei 1a; zoneless & Vitest sind dort Default). Dafür Node auf 24.18 LTS aktualisiert.
+- **e2e-Skripte:** `npm run e2e` baut immer erst (`ng build && playwright test`) — nacktes `playwright test` testet sonst einen veralteten dist (bei der Mutations-Stichprobe live beobachtet).

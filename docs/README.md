@@ -17,10 +17,15 @@
   `Testing-Long-Spec.md`): L1/L2/L3, kein MSW bis Stufe 3, Tiers P/C/T,
   Layout als reine Funktionen, AXE leichte Pflicht, Coverage-Boden ~80 %.
 - Glossar angelegt (u.a. Ausbaustufe vs. Schritt).
-- Noch kein Angular-Code — Start mit Schritt 1a (Walking Skeleton) steht bevor.
+- **Schritt 1a (Walking Skeleton) gebaut:** Angular 22 (zoneless, SCSS,
+  strict), ESLint+Prettier, Vitest (L1+L2 inkl. AXE-Helfer), Playwright (L3),
+  CI-Pipeline mit Pages-Deploy. Beispieltests je Schicht, Mutations-Stichprobe
+  bestanden. Live-URL: https://johannesschacht.github.io/history-timeline/
+- Handbuch begonnen (`handbook.md`).
 
 ## Nächste Schritte
-- **Spec für Schritt 1a** entwerfen (Bau-Zyklus: Spec → Code+Tests → Handbuch).
+- CI-Lauf und Pages-Deploy verifizieren (erster Push nach 1a).
+- **Spec für Schritt 1b** (Datenmodell + Repository) entwerfen.
 - Johannes schreibt eigene Gedanken zum Herzstück (Q1) auf (parallel, eilt
   erst zu Schritt 1g).
 
