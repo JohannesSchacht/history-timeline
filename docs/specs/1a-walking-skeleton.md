@@ -1,6 +1,6 @@
 # Spec — Schritt 1a: Walking Skeleton
 
-> Status: **abgestimmt** — Umsetzung läuft.
+> Status: **umgesetzt** (2026-07-04). Alle Erfolgskriterien erfüllt.
 > Bau-Zyklus: Spec → Code+Tests → Handbuch → Abschluss (`WORKFLOW.md`).
 
 ## Ziel (ein Satz)
@@ -39,11 +39,23 @@ bewiesen funktioniert.
 
 ## Woran man Erfolg erkennt
 
-- [ ] `https://johannesschacht.github.io/history-timeline/` zeigt die Seite.
-- [ ] Ein Push auf `main` läuft die komplette Pipeline grün durch.
-- [ ] Lokal: `npm test`, `npm run lint`, `npm run e2e` — alle grün.
-- [ ] Die drei Beispieltests existieren und schlagen fehl, wenn man sie
-      mutwillig bricht (Stichprobe: Titel ändern → L2/L3 rot).
+- [x] `https://johannesschacht.github.io/history-timeline/` zeigt die Seite.
+- [x] Ein Push auf `main` läuft die komplette Pipeline grün durch (Lauf #3).
+- [x] Lokal: `npm test`, `npm run lint`, `npm run e2e` — alle grün.
+- [x] Die drei Beispieltests existieren und schlagen fehl, wenn man sie
+      mutwillig bricht (Stichprobe: Titel ändern → L2/L3 rot; deckte dabei
+      auf, dass nacktes `playwright test` einen alten dist testet → deshalb
+      baut `npm run e2e` immer erst).
+
+## Befunde aus der Umsetzung
+
+- `ng test --coverage` braucht `@vitest/coverage-v8` (fehlte; erst in CI
+  aufgefallen → Lehre: CI-Befehle vor dem Push einmal lokal exakt so laufen
+  lassen).
+- Die **Pages-Quelle** musste einmalig manuell auf „GitHub Actions" gestellt
+  werden (Repo-Settings → Pages); der Workflow-Token darf die Aktivierung
+  trotz `enablement: true` nicht selbst vornehmen.
+- Node musste für Angular 22 auf 24.18 LTS aktualisiert werden.
 
 ## Technische Festlegungen (klein, aber explizit)
 

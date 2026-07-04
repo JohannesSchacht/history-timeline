@@ -24,7 +24,6 @@
 - Handbuch begonnen (`handbook.md`).
 
 ## Nächste Schritte
-- CI-Lauf und Pages-Deploy verifizieren (erster Push nach 1a).
 - **Spec für Schritt 1b** (Datenmodell + Repository) entwerfen.
 - Johannes schreibt eigene Gedanken zum Herzstück (Q1) auf (parallel, eilt
   erst zu Schritt 1g).
