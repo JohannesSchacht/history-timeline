@@ -1,33 +1,43 @@
 # Vision (Grobbild)
 
-> Status: **Entwurf der KI** — bewusst als *mein* inneres Bild formuliert,
-> damit du etwas zum Anecken hast. Noch nicht abgestimmt.
-> Ziel dieses Dokuments: 5–8 Sätze, keine Details, nur die Außenschicht.
+> Status: **abgestimmtes Grobbild** — gemeinsam korrigiert.
+> Außenschicht, bewusst ohne Detail-Spezifikation.
 
-## Mein inneres Bild in Prosa
+## Das geteilte Bild in Prosa
 
-Ein Nutzer öffnet eine Web-App und sieht eine **horizontale Zeitachse**, die
-sich von links (früher) nach rechts (später) erstreckt. Auf dieser Achse
-liegen **geschichtliche Ereignisse** als einzelne Marker; klickt man einen an,
-erscheinen Details (Titel, Datum, kurze Beschreibung). Man kann in die Achse
-**hinein- und herauszoomen** — herausgezoomt sieht man Jahrhunderte, hinein-
-gezoomt einzelne Jahre — und horizontal scrollen wie auf einer Landkarte.
-Über **Filter** blendet man Ereignisse ein und aus, z.B. nach Kategorie
-(Krieg, Kunst, Wissenschaft …) oder Zeitraum, sodass die Achse nur noch das
-Gewünschte zeigt. Ziel ist, historische Zusammenhänge **visuell und zeitlich
-greifbar** zu machen: Was passierte gleichzeitig? Was folgte woraus?
+Eine Web-App zeigt eine **horizontale Zeitachse** (links früher, rechts später).
+Darauf liegen **geschichtliche Ereignisse** — sowohl **punktuelle Zeitpunkte**
+(z.B. eine Schlacht) als auch **Zeitspannen/Epochen** als Balken (z.B.
+„Römisches Reich, 27 v.Chr.–476"). Man kann **zoomen** (Jahrhunderte ↔ Jahre)
+und horizontal scrollen wie auf einer Landkarte. Über **Filtern/Auswählen**
+bestimmt man, *welcher* Ausschnitt der Geschichte sichtbar ist — und *wie* er
+dargestellt wird. Ziel ist, historische Zusammenhänge visuell und zeitlich
+greifbar zu machen: Was passierte gleichzeitig? Was folgte woraus?
 
-## Stellen, an denen ich Divergenz vermute (bitte hier anecken)
+## Abgestimmte Eckpunkte
 
-1. **Eine Achse oder mehrere Stränge?** Ich denke an *eine* Achse mit
-   Filtern. Du könntest mehrere parallele Zeitstränge zum *Vergleichen*
-   meinen (z.B. Europa vs. Asien übereinander).
-2. **Zeitpunkte oder Zeitspannen?** Ich denke primär an punktuelle Ereignisse.
-   Vielleicht meinst du eher Perioden/Epochen als Balken (z.B. "Römisches
-   Reich, 27 v.Chr.–476").
-3. **"Filtern" = ausblenden oder = suchen/hervorheben?** Ich lese Filtern als
-   "unerwünschtes verschwindet". Du könntest "hervorheben, Rest gedimmt" meinen.
-4. **Zielnutzer & Zweck:** Ich stelle mir Neugierige/Lernende vor (Erkunden).
-   Vielleicht zielst du eher auf ein Autoren-/Recherche-Werkzeug.
-5. **Datenumfang:** Ich denke an eine kuratierte, überschaubare Menge.
-   Vielleicht willst du zu ganzen Epochen der Weltgeschichte skalieren.
+1. **Eine Achse** — keine parallelen Vergleichsstränge. ✓
+2. **Zeitpunkte UND Zeitspannen** — beides sind Ereignisse. ✓
+3. **Das Herzstück (offen, wird entwickelt):** Filtern/Auswählen ist mehr als
+   Ein-/Ausblenden. Die eigentliche Kunst liegt in der **optischen Gestaltung
+   der ausgewählten Ansicht** — Anordnung, Hervorhebung, Dichte, Kategorien.
+   Hier soll der meiste Denk-Grips hineinfließen.
+4. **Zielnutzer & Zweck (zu vertiefen):** noch offen — und zwar *im Dienst von
+   Punkt 3*. Wer warum auf die Ansicht schaut, prägt, wie sie gestaltet sein muss.
+5. **Ambition, groß gedacht (Nordstern):** Die Datenbasis soll wachsen — durch
+   **Nutzer, die Sammlungen anlegen und teilen** (Sharing) und/oder durch
+   **KI-gestützte Recherche** („zeig alle Kriege in Europa"). Das ist der
+   Nordstern, nicht der erste Bauschritt.
+
+## Bewusste Spannung (geparkt)
+
+Die große Ambition (Punkt 5: Accounts, Sharing, KI-Recherche, Backend) steht im
+Spannungsverhältnis zu einem *lernbaren, schnell fertigen* ersten Bauschritt.
+Wir halten den Nordstern fest, schneiden aber später eine kleine erste Scheibe
+heraus. Details in `open-questions.md`.
+
+## Arbeitsweise-Notiz
+
+Diese Vision ist nicht aus einem fertigen Bild im Kopf des Nutzers „extrahiert",
+sondern **gemeinsam entwickelt** — besonders die Punkte 3–5 entstehen erst in
+der Zusammenarbeit. Siehe Leitprinzipien in `WORKFLOW.md`.

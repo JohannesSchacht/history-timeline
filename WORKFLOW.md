@@ -13,6 +13,15 @@ klären wir sie zuerst.
 sichtbar (Entwurf), der Mensch korrigiert. Reagieren ist präziser als
 aus dem Nichts spezifizieren.
 
+## Leitprinzip: gemeinsam entwickeln statt extrahieren
+
+Nicht alle Anforderungen liegen fertig im Kopf des Menschen und müssen nur
+"abgefragt" werden. Viele Ideen — gerade die interessanten — **entstehen erst
+in der Zusammenarbeit**. Die KI fragt also nicht nur ab, sondern denkt mit und
+schlägt vor; der Mensch wählt, verwirft, schärft. Vision und Konzept sind ein
+gemeinsames Produkt. (Das ist zugleich der Kern des Lernziels: Denkarbeit
+delegieren heißt gemeinsam denken, nicht nur Antworten liefern.)
+
 ## Dokumentenlandkarte
 
 | Datei | Ebene | Zweck |
@@ -29,12 +38,26 @@ Detail-Spezifikationen (Datenmodell, Feature-Specs, Backlog) entstehen
 
 ## Reifegrad der Dokumente
 
-- [x] `WORKFLOW.md` — Entwurf steht
-- [ ] `docs/vision.md` — Entwurf steht, wird korrigiert
-- [ ] `docs/glossary.md` — fällt aus der Vision-Korrektur ab
-- [ ] `docs/decisions.md` — wächst laufend
-- [ ] `docs/open-questions.md` — wächst laufend
-- [ ] `docs/README.md` — kommt, sobald Vision steht
+- [x] `WORKFLOW.md` — steht
+- [x] `docs/vision.md` — abgestimmtes Grobbild
+- [ ] `docs/glossary.md` — noch offen (bei Bedarf aus Q1 ableiten)
+- [x] `docs/decisions.md` — angelegt, wächst laufend
+- [x] `docs/open-questions.md` — angelegt, wächst laufend
+- [x] `docs/README.md` — angelegt (Stand + nächste Schritte)
+
+## Bau-Zyklus (ab der Bauphase, je Ausbau-Schritt)
+
+Jeder Schritt aus `docs/roadmap.md` durchläuft denselben Zyklus:
+
+1. **Spezifikation** — kurzes Spec-Dokument (`docs/specs/<schritt>.md`):
+   was der Schritt kann, was bewusst nicht, wie man Erfolg sieht.
+   KI entwirft, Mensch korrigiert (gleiches Muster wie bei der Vision).
+2. **Code + Tests** — Umsetzung inkl. Unit-Tests; E2E-Tests für
+   nutzersichtbares Verhalten. Mensch reviewt als Abnehmer, nicht als Tipper.
+3. **Handbuch** — `docs/handbook.md` wird um den neuen Stand ergänzt
+   (was kann die App jetzt, wie benutzt man es).
+4. **Abschluss** — Entscheidungen ins Log, `docs/README.md` aktualisieren,
+   committen.
 
 ## Sync-Rhythmus
 
