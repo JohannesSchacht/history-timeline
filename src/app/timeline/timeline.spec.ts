@@ -101,8 +101,8 @@ describe('Timeline', () => {
     it('Pointer-Drag nach rechts schwenkt in frühere Jahre', async () => {
       const { fixture, host } = await setup([lepanto]);
       const svg = host.querySelector('svg') as SVGSVGElement;
-      svg.setPointerCapture = () => {}; // jsdom kennt Pointer-Capture nicht
-      svg.releasePointerCapture = () => {};
+      svg.setPointerCapture = () => undefined; // jsdom kennt Pointer-Capture nicht
+      svg.releasePointerCapture = () => undefined;
       svg.dispatchEvent(new PointerEvent('pointerdown', { pointerId: 1, clientX: 400 }));
       svg.dispatchEvent(new PointerEvent('pointermove', { pointerId: 1, clientX: 500 }));
       svg.dispatchEvent(new PointerEvent('pointerup', { pointerId: 1, clientX: 500 }));

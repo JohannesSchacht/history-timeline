@@ -18,6 +18,10 @@
   wurde nur vom L1-Test gefangen — der L2-Wheel-Test zielt auf die
   SVG-Mitte, wo die Mutation zufällig korrekt ist. Testpunkte bewusst
   asymmetrisch wählen.
+- **Lehrstück Shell-Pipes:** `npm run lint | tail -1` verschluckt den
+  Exit-Code (Pipe liefert den von `tail`) — Lint war lokal rot, wirkte grün,
+  CI-Lauf #1 zu 1d scheiterte. Prüfbefehle nie durch Pipes vom Exit-Code
+  trennen.
 > Bau-Zyklus: Spec → Code+Tests → Handbuch → Abschluss (`WORKFLOW.md`).
 
 ## Ziel (ein Satz)
