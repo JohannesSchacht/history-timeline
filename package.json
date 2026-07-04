@@ -11,7 +11,8 @@
     "format": "prettier --write \"src/**/*.{ts,html,scss}\" \"e2e/**/*.ts\"",
     "format:check": "prettier --check \"src/**/*.{ts,html,scss}\" \"e2e/**/*.ts\"",
     "e2e": "ng build && playwright test",
-    "e2e:headed": "playwright test --headed"
+    "e2e:headed": "playwright test --headed",
+    "test:verbose": "ng test --reporters verbose"
   },
   "private": true,
   "packageManager": "npm@11.9.0",

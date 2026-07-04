@@ -18,6 +18,7 @@ ist nach wenigen Minuten automatisch dort sichtbar.
 |---|---|
 | `npm start` | Entwicklungs-Server auf http://localhost:4200 (Live-Reload) |
 | `npm test` | Unit-Tests (L1/L2, Vitest) |
+| `npm run test:verbose` | Unit-Tests mit Einzelauflistung aller Tests |
 | `npm run e2e` | Produktions-Build + Browser-Tests (L3, Playwright) |
 | `npm run lint` | ESLint |
 | `npm run format` | Prettier über src/ und e2e/ |
