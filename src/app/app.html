@@ -10,8 +10,11 @@
     <app-timeline
       [events]="store.filteredEvents()"
       [viewport]="store.viewport()"
+      [selectedId]="store.selectedEventId()"
       (viewportChange)="store.setViewport($event)"
+      (eventSelected)="store.toggleEvent($event)"
     />
+    <app-detail-panel />
   }
 </main>
 

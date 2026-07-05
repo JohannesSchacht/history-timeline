@@ -21,11 +21,18 @@ import { panViewport, wheelZoomFactor, zoomViewport } from './layout/viewport-co
 export class Timeline {
   readonly events = input.required<readonly HistoricalEvent[]>();
   readonly viewport = input.required<Viewport>();
+  /** hervorzuhebendes Event (1f) */
+  readonly selectedId = input<string | null>(null);
   readonly viewportChange = output<Viewport>();
+  /** Marker geklickt (Event-ID) bzw. Hintergrund geklickt (null) */
+  readonly eventSelected = output<string | null>();
 
   protected readonly svg = viewChild.required<ElementRef<SVGSVGElement>>('svgRoot');
   protected readonly dragging = signal(false);
   private lastPointerX: number | null = null;
+  /** trennt Klick von Pan-Drag (Spec 1f): Bewegung über der Schwelle → kein Klick */
+  private movedPx = 0;
+  private static readonly CLICK_THRESHOLD_PX = 4;
 
   protected readonly LAYOUT = LAYOUT;
   protected readonly formatYear = formatYear;
@@ -61,11 +68,13 @@ export class Timeline {
   protected onPointerDown(event: PointerEvent): void {
     this.dragging.set(true);
     this.lastPointerX = event.clientX;
+    this.movedPx = 0;
     this.svg().nativeElement.setPointerCapture(event.pointerId);
   }
 
   protected onPointerMove(event: PointerEvent): void {
     if (!this.dragging() || this.lastPointerX === null) return;
+    this.movedPx += Math.abs(event.clientX - this.lastPointerX);
     const dx = this.clientXToViewBox(event.clientX) - this.clientXToViewBox(this.lastPointerX);
     this.lastPointerX = event.clientX;
     if (dx !== 0) this.viewportChange.emit(panViewport(this.viewport(), dx));
@@ -75,5 +84,18 @@ export class Timeline {
     this.dragging.set(false);
     this.lastPointerX = null;
     this.svg().nativeElement.releasePointerCapture(event.pointerId);
+  }
+
+  private wasDrag(): boolean {
+    return this.movedPx > Timeline.CLICK_THRESHOLD_PX;
+  }
+
+  protected onMarkerClick(id: string, event: MouseEvent): void {
+    event.stopPropagation(); // sonst feuert zusätzlich der Hintergrund-Klick
+    if (!this.wasDrag()) this.eventSelected.emit(id);
+  }
+
+  protected onBackgroundClick(): void {
+    if (!this.wasDrag()) this.eventSelected.emit(null);
   }
 }

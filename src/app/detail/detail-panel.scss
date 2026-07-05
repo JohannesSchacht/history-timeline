@@ -1,0 +1,37 @@
+// Bewusst schlicht (Spec 1f) — Gestaltung ist 1g.
+.detail {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid #d5d9e0;
+  border-radius: 6px;
+  background: #fafbfc;
+
+  h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.15rem 1rem;
+    margin: 0;
+
+    dt {
+      color: #666;
+      font-size: 0.85rem;
+    }
+
+    dd {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  }
+
+  .description {
+    margin: 0.6rem 0 0;
+    font-size: 0.9rem;
+    color: #333;
+  }
+}

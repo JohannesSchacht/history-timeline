@@ -30,8 +30,31 @@
     fill: #333;
   }
 
+  .span,
+  .point {
+    cursor: pointer;
+  }
+
   .span rect {
     fill: #7a8ba6;
+  }
+
+  // Hervorhebung des gewählten Events (1f) — Feinschliff ist 1g
+  .span.selected rect {
+    fill: #2c3e57;
+    stroke: #1a2636;
+    stroke-width: 1.5;
+  }
+
+  .point.selected circle {
+    fill: #1a2636;
+    stroke: #1a2636;
+    stroke-width: 3;
+  }
+
+  .point.selected .point-label {
+    font-weight: 700;
+    fill: #1a2636;
   }
 
   .span-label {

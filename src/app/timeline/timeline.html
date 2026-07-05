@@ -11,6 +11,9 @@
   (pointerdown)="onPointerDown($event)"
   (pointermove)="onPointerMove($event)"
   (pointerup)="onPointerUp($event)"
+  (click)="onBackgroundClick()"
+  (keydown.escape)="eventSelected.emit(null)"
+  tabindex="0"
 >
   <!-- Achse -->
   <line class="axis" [attr.x1]="0" [attr.y1]="layout().axisY" [attr.x2]="viewport().widthPx" [attr.y2]="layout().axisY" />
@@ -30,7 +33,12 @@
 
   <!-- Zeitspannen als Balken unter der Achse -->
   @for (span of layout().spans; track span.event.id) {
-    <g class="span">
+    <g
+      class="span"
+      [class.selected]="span.event.id === selectedId()"
+      [attr.data-event-id]="span.event.id"
+      (click)="onMarkerClick(span.event.id, $event)"
+    >
       <rect [attr.x]="span.x1" [attr.y]="span.y" [attr.width]="span.x2 - span.x1" [attr.height]="LAYOUT.spanHeight" rx="2">
         <title>{{ tooltip(span.event) }}</title>
       </rect>
@@ -40,7 +48,12 @@
 
   <!-- Zeitpunkte als Punkte über der Achse -->
   @for (point of layout().points; track point.event.id) {
-    <g class="point">
+    <g
+      class="point"
+      [class.selected]="point.event.id === selectedId()"
+      [attr.data-event-id]="point.event.id"
+      (click)="onMarkerClick(point.event.id, $event)"
+    >
       <line class="point-stem" [attr.x1]="point.x" [attr.y1]="point.y" [attr.x2]="point.x" [attr.y2]="layout().axisY" />
       <circle [attr.cx]="point.x" [attr.cy]="point.y" [attr.r]="LAYOUT.pointRadius">
         <title>{{ tooltip(point.event) }}</title>

@@ -31,6 +31,25 @@ test('Filter: Lepanto überlebt eine abgewählte Kategorie, nicht zwei (Spec 1e)
   await expect(page.locator('svg title', { hasText: 'Michelangelos David' })).toHaveCount(1);
 });
 
+test('Details: Klick auf Lepanto öffnet das Panel, erneuter Klick schließt (Spec 1f)', async ({ page }) => {
+  await page.goto('/');
+  const marker = page.locator('[data-event-id="ev-schlacht-lepanto"]');
+  // dispatchEvent statt click: Im dichten Cluster liegt das Bounding-Box-
+  // Zentrum der Gruppe auf leerem Raum (Playwright-Hit-Check schlägt fehl).
+  // Die echte Klick-Mechanik deckt der L2-Test ab.
+  await marker.dispatchEvent('click');
+
+  const panel = page.getByRole('region', { name: 'Ereignis-Details' });
+  await expect(panel).toBeVisible();
+  await expect(panel.getByRole('heading')).toHaveText('Seeschlacht von Lepanto');
+  await expect(panel).toContainText('7. Oktober 1571');
+  await expect(panel).toContainText('Militär, Religion');
+  await expect(panel).toContainText('Lepanto (Naupaktos)');
+
+  await marker.dispatchEvent('click'); // erneuter Klick wählt ab
+  await expect(panel).toHaveCount(0);
+});
+
 test('Herauszoomen mit dem Mausrad macht die Antike sichtbar (Spec 1d)', async ({ page }) => {
   await page.goto('/');
   const svg = page.locator('svg');

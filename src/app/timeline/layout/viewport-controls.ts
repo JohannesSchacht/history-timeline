@@ -71,26 +71,5 @@ export function wheelZoomFactor(deltaY: number): number {
   return deltaY < 0 ? factor : 1 / factor;
 }
 
-/**
- * Achsenbeschriftung für beliebige Größenordnungen (löst Q7).
- * Exakte Jahre bleiben den Tooltips vorbehalten.
- */
-export function formatAxisYear(year: number): string {
-  const abs = Math.abs(year);
-  const suffix = year < 0 ? ' v. Chr.' : '';
-  if (abs >= 1_000_000_000) return `${trimDecimal(abs / 1_000_000_000)} Mrd.${suffix}`;
-  if (abs >= 1_000_000) return `${trimDecimal(abs / 1_000_000)} Mio.${suffix}`;
-  if (abs >= 10_000) return `${groupThousands(Math.round(abs))}${suffix}`;
-  return year < 0 ? `${abs} v. Chr.` : String(year);
-}
-
-/** 4.6 → „4,6", 4.0 → „4" */
-function trimDecimal(value: number): string {
-  const rounded = Math.round(value * 10) / 10;
-  return String(rounded).replace('.', ',');
-}
-
-/** 300000 → „300.000" */
-function groupThousands(value: number): string {
-  return String(value).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-}
+/** Achsenbeschriftung: umgezogen nach data/format.ts (1f); Re-Export für bestehende Importe. */
+export { formatAxisYear } from '../../data/format';

@@ -29,16 +29,18 @@
 - **Schritt 1d (Zoom & Pan):** Wheel-Zoom um den Cursor (Fokus-Invariante),
   Pointer-Drag-Pan, `formatAxisYear` löst Q7.
 - **Schritt 1e (Filter):** ODER-Semantik über Kategorien (Baum-expandiert),
-  Typ-Filter unabhängig; `TimelineStore` (@ngrx/signals) eingezogen,
-  Filter-Panel (fieldset/Checkbox-Chips). 77 Unit-Tests + 4 e2e.
+  Typ-Filter unabhängig; `TimelineStore` (@ngrx/signals) eingezogen.
+- **Schritt 1f (Event-Details):** Klick auf Marker → Detail-Panel unter der
+  Achse (präzisionsgerechtes Datum via `formatHistoricalDate`, Typ-/
+  Kategorie-/Orts-Namen aufgelöst); Klick/Pan per Bewegungsschwelle
+  getrennt; Escape wählt ab. Auswahl überlebt Filter/Zoom.
+  95 Unit-Tests + 5 e2e.
 
 ## Nächste Schritte
-- **Gemeinsam spielen:** Zoom + Filter kombiniert (Zoomgefühl, Lesbarkeit,
-  Filterwirkung) — Erkenntnisse fließen in 1g/Q1 ein.
-- **Spec für Schritt 1f** (Event-Details bei Klick) entwerfen — bewusst
-  leichter Schritt vor dem Herzstück 1g.
-- Johannes schreibt eigene Gedanken zum Herzstück (Q1) auf — **wird jetzt
-  akut**, 1g rückt näher.
+- **Das Herzstück: Schritt 1g (Gestaltung der Ansicht).** Vorher braucht es
+  Johannes' Q1-Gedanken — sie werden die Grundlage der 1g-Spec. Parallel:
+  ausgiebig mit Zoom+Filter+Details spielen (die App ist jetzt komplett
+  funktional, nur noch nicht schön).
 
 ## Git
 - Branch `main`, Remote `origin` = github.com/JohannesSchacht/history-timeline

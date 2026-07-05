@@ -15,19 +15,28 @@ const viewport: Viewport = { startYear: 1400, endYear: 1700, widthPx: 1000 };
 
 @Component({
   imports: [Timeline],
-  template: `<app-timeline [events]="events" [viewport]="viewport" (viewportChange)="changes.push($event)" />`,
+  template: `<app-timeline
+    [events]="events"
+    [viewport]="viewport"
+    [selectedId]="selectedId"
+    (viewportChange)="changes.push($event)"
+    (eventSelected)="selections.push($event)"
+  />`,
 })
 class Host {
   events: readonly HistoricalEvent[] = [];
   viewport = viewport;
+  selectedId: string | null = null;
   changes: Viewport[] = [];
+  selections: (string | null)[] = [];
 }
 
 describe('Timeline', () => {
-  async function setup(events: HistoricalEvent[]) {
+  async function setup(events: HistoricalEvent[], selectedId: string | null = null) {
     await TestBed.configureTestingModule({ imports: [Host] }).compileComponents();
     const fixture = TestBed.createComponent(Host);
     fixture.componentInstance.events = events;
+    fixture.componentInstance.selectedId = selectedId;
     await fixture.whenStable();
     fixture.detectChanges();
     return { fixture, host: fixture.nativeElement as HTMLElement };
@@ -96,6 +105,40 @@ describe('Timeline', () => {
       svg.dispatchEvent(new WheelEvent('wheel', { deltaY: 100, clientX: 500, cancelable: true }));
       const emitted = fixture.componentInstance.changes.at(-1);
       expect(emitted!.endYear - emitted!.startYear).toBeGreaterThan(300);
+    });
+
+    it('Marker-Klick wählt das Event aus (und nicht den Hintergrund)', async () => {
+      const { fixture, host } = await setup([lepanto]);
+      (host.querySelector('[data-event-id="ev-lepanto"]') as SVGGElement).dispatchEvent(
+        new MouseEvent('click', { bubbles: true }),
+      );
+      await fixture.whenStable();
+      expect(fixture.componentInstance.selections).toEqual(['ev-lepanto']);
+    });
+
+    it('Hintergrund-Klick meldet null (Abwählen)', async () => {
+      const { fixture, host } = await setup([lepanto]);
+      (host.querySelector('svg') as SVGSVGElement).dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await fixture.whenStable();
+      expect(fixture.componentInstance.selections).toEqual([null]);
+    });
+
+    it('nach einem Pan-Drag wählt das Loslassen NICHT aus (Schwelle)', async () => {
+      const { fixture, host } = await setup([lepanto]);
+      const svg = host.querySelector('svg') as SVGSVGElement;
+      svg.setPointerCapture = () => undefined;
+      svg.releasePointerCapture = () => undefined;
+      svg.dispatchEvent(new PointerEvent('pointerdown', { pointerId: 1, clientX: 400 }));
+      svg.dispatchEvent(new PointerEvent('pointermove', { pointerId: 1, clientX: 450 }));
+      svg.dispatchEvent(new PointerEvent('pointerup', { pointerId: 1, clientX: 450 }));
+      svg.dispatchEvent(new MouseEvent('click', { bubbles: true })); // Browser feuert Click nach dem Drag
+      await fixture.whenStable();
+      expect(fixture.componentInstance.selections).toEqual([]);
+    });
+
+    it('hebt das gewählte Event hervor (selected-Klasse)', async () => {
+      const { host } = await setup([lepanto], 'ev-lepanto');
+      expect(host.querySelector('[data-event-id="ev-lepanto"]')?.classList.contains('selected')).toBe(true);
     });
 
     it('Pointer-Drag nach rechts schwenkt in frühere Jahre', async () => {

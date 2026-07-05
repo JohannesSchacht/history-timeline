@@ -1,0 +1,20 @@
+@if (event(); as ev) {
+  <section class="detail" aria-label="Ereignis-Details">
+    <h2>{{ ev.title }}</h2>
+    <dl>
+      <dt>Wann</dt>
+      <dd>{{ dateText() }}</dd>
+      <dt>Typ</dt>
+      <dd>{{ typeName() }}</dd>
+      <dt>Kategorien</dt>
+      <dd>{{ categoryNames() }}</dd>
+      @if (ev.placeIds.length > 0) {
+        <dt>Orte</dt>
+        <dd>{{ placeNames() }}</dd>
+      }
+    </dl>
+    @if (ev.description) {
+      <p class="description">{{ ev.description }}</p>
+    }
+  </section>
+}

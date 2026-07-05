@@ -34,6 +34,14 @@ Die App zeigt eine **bewegliche, filterbare Zeitachse** (Start: 1400–1700):
 - Der Zähler über der Achse zeigt die Wirkung der Filter im aktuellen
   Ausschnitt.
 
+### Details ansehen
+
+**Klick auf einen Punkt oder Balken** öffnet unter der Achse die
+Detailansicht: Titel, Datum (präzisionsgerecht — „um 1450" bei unsicherer
+Datierung, „7. Oktober 1571" bei tagesgenauer), Typ, Kategorien, Orte und
+Beschreibung. Erneuter Klick, Klick auf freie Fläche oder **Escape**
+schließt die Ansicht. Die Auswahl bleibt beim Filtern und Zoomen erhalten.
+
 - **Punkte über der Achse** sind Zeitpunkt-Ereignisse (z. B. die Seeschlacht
   von Lepanto 1571); bei dichtem Gedränge stapeln sie sich nach oben.
 - **Balken unter der Achse** sind Zeitspannen (z. B. der Dreißigjährige

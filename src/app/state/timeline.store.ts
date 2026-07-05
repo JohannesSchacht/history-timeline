@@ -20,6 +20,8 @@ export const TimelineStore = signalStore(
     viewport: DEFAULT_VIEWPORT,
     selectedCategoryIds: [] as readonly string[],
     selectedTypeIds: [] as readonly string[],
+    /** gewähltes Event (1f); überlebt Filter/Zoom bewusst (Detail = Nachschlagen) */
+    selectedEventId: null as string | null,
   }),
   withComputed((store) => {
     const repo = inject(EventRepository);
@@ -28,6 +30,11 @@ export const TimelineStore = signalStore(
       error: repo.error,
       taxonomy: repo.taxonomy,
       totalCount: computed(() => repo.events().length),
+      places: repo.places,
+      /** aus ALLEN Events aufgelöst, nicht nur den gefilterten (Spec 1f) */
+      selectedEvent: computed(
+        () => repo.events().find((e) => e.id === store.selectedEventId()) ?? null,
+      ),
       filteredEvents: computed(() =>
         filterEvents(
           repo.events(),
@@ -54,6 +61,12 @@ export const TimelineStore = signalStore(
       },
       setViewport(viewport: Viewport): void {
         patchState(store, { viewport });
+      },
+      /** Klick-Semantik (1f): gleiches Event oder Hintergrund (null) → abwählen. */
+      toggleEvent(id: string | null): void {
+        patchState(store, {
+          selectedEventId: id === null || id === store.selectedEventId() ? null : id,
+        });
       },
       toggleCategory(id: string): void {
         patchState(store, { selectedCategoryIds: toggle(store.selectedCategoryIds(), id) });

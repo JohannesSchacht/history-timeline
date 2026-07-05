@@ -65,4 +65,26 @@ describe('TimelineStore', () => {
     store.setViewport({ startYear: 1000, endYear: 2000, widthPx: 1000 });
     expect(store.viewport().startYear).toBe(1000);
   });
+
+  it('toggleEvent: wählt, wählt ab (gleiches Event), wählt ab (null)', async () => {
+    const { store } = setup();
+    await store.load();
+    store.toggleEvent('lepanto');
+    expect(store.selectedEvent()?.id).toBe('lepanto');
+    store.toggleEvent('lepanto');
+    expect(store.selectedEvent()).toBeNull();
+    store.toggleEvent('thesen');
+    store.toggleEvent(null);
+    expect(store.selectedEvent()).toBeNull();
+  });
+
+  it('die Auswahl überlebt den Filter (Detail = Nachschlagen, Spec 1f)', async () => {
+    const { store } = setup();
+    await store.load();
+    store.toggleEvent('lepanto');
+    store.toggleCategory('cat-militaer');
+    store.toggleCategory('cat-religion'); // Lepanto ist jetzt weggefiltert …
+    expect(store.filteredEvents()).toEqual([]);
+    expect(store.selectedEvent()?.id).toBe('lepanto'); // … bleibt aber gewählt
+  });
 });
