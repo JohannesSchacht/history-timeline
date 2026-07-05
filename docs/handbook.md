@@ -17,6 +17,8 @@ Die App zeigt eine **bewegliche, filterbare Zeitachse** (Start: 1400–1700):
 
 - **Mausrad** zoomt hinein und heraus — um die Position des Mauszeigers:
   Das Jahr unter dem Zeiger bleibt stehen, die Umgebung dehnt/staucht sich.
+  Anhaltendes Scrollen **beschleunigt** (für weite Reisen); einzelne Rasten
+  bleiben fein.
 - **Ziehen mit gedrückter Maustaste** verschiebt den Ausschnitt.
 - Der erreichbare Bereich: von der Entstehung der Erde (4,6 Mrd. Jahre,
   Achse zeigt „Mrd./Mio. v. Chr.") bis in einzelne Jahre hinein.

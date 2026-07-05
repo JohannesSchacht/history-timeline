@@ -1,7 +1,7 @@
 # Spec — Schritt 1d: Zoom & Pan
 
-> Status: **umgesetzt** (2026-07-04). Zoomfaktor-Feintuning nach gemeinsamem
-> Erspielen ggf. offen.
+> Status: **umgesetzt** (2026-07-04). Nachtrag 2026-07-05 nach Erspielen:
+> Wheel-Beschleunigung + dynamische Viewport-Breite (s. Befunde).
 
 ## Befunde aus der Umsetzung
 
@@ -22,6 +22,20 @@
   Exit-Code (Pipe liefert den von `tail`) — Lint war lokal rot, wirkte grün,
   CI-Lauf #1 zu 1d scheiterte. Prüfbefehle nie durch Pipes vom Exit-Code
   trennen.
+
+## Nachtrag nach Erspielen (2026-07-05, Feedback Johannes)
+
+- **Wheel-Beschleunigung** (`wheelBoost`): Johannes' Beobachtung — Tempo
+  „nimmt bei großen Zeiträumen zu", Rückweg von Milliarden „anfangs sehr
+  langsam" — ist der Exponentialeffekt: konstanter relativer Faktor heißt
+  exponentiell wachsende absolute Schritte, und die 9-Größenordnungen-Reise
+  brauchte ~90 Rasten. Lösung: anhaltendes Scrollen beschleunigt (Boost
+  linear bis 6×, Serie = Events < 250 ms Abstand), einzelne Rasten bleiben
+  präzise bei 1,2×.
+- **Dynamische Viewport-Breite:** App nutzt die volle Bildschirmbreite;
+  `widthPx` koppelt per ResizeObserver an die echte Pixelbreite
+  (1 viewBox-Einheit ≈ 1 px) — breite Monitore zeigen MEHR statt GRÖSSER.
+  Guard gegen Breite 0 (minimiertes Fenster/jsdom).
 > Bau-Zyklus: Spec → Code+Tests → Handbuch → Abschluss (`WORKFLOW.md`).
 
 ## Ziel (ein Satz)

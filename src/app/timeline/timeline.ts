@@ -1,8 +1,19 @@
-import { Component, ElementRef, computed, input, output, signal, viewChild } from '@angular/core';
+import {
+  Component,
+  DestroyRef,
+  ElementRef,
+  afterNextRender,
+  computed,
+  inject,
+  input,
+  output,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { HistoricalEvent, formatYear } from '../data/model';
 import { Viewport, xToYear } from './layout/time-scale';
 import { LAYOUT, layoutTimeline } from './layout/timeline-layout';
-import { panViewport, wheelZoomFactor, zoomViewport } from './layout/viewport-controls';
+import { panViewport, wheelBoost, wheelZoomFactor, zoomViewport } from './layout/viewport-controls';
 
 /**
  * Timeline-Komponente (testing.md Kategorie T): zeichnet das Ergebnis von
@@ -33,6 +44,27 @@ export class Timeline {
   /** trennt Klick von Pan-Drag (Spec 1f): Bewegung über der Schwelle → kein Klick */
   private movedPx = 0;
   private static readonly CLICK_THRESHOLD_PX = 4;
+  /** Wheel-Beschleunigung (1d-Nachtrag): Rasten in kurzer Folge zählen */
+  private wheelStreak = 0;
+  private lastWheelAt = 0;
+
+  constructor() {
+    // Viewport-Breite an die echte Pixelbreite koppeln (Erspiel-Feedback):
+    // 1 viewBox-Einheit ≈ 1 px → breite Bildschirme zeigen MEHR, nicht GRÖSSER.
+    const destroyRef = inject(DestroyRef);
+    afterNextRender(() => {
+      if (typeof ResizeObserver === 'undefined') return; // jsdom
+      const el = this.svg().nativeElement;
+      const observer = new ResizeObserver(() => {
+        const width = Math.round(el.getBoundingClientRect().width);
+        if (width > 0 && width !== this.viewport().widthPx) {
+          this.viewportChange.emit({ ...this.viewport(), widthPx: width });
+        }
+      });
+      observer.observe(el);
+      destroyRef.onDestroy(() => observer.disconnect());
+    });
+  }
 
   protected readonly LAYOUT = LAYOUT;
   protected readonly formatYear = formatYear;
@@ -61,8 +93,12 @@ export class Timeline {
 
   protected onWheel(event: WheelEvent): void {
     event.preventDefault();
+    const now = Date.now();
+    this.wheelStreak = now - this.lastWheelAt < 250 ? this.wheelStreak + 1 : 0;
+    this.lastWheelAt = now;
     const focusYear = xToYear(this.clientXToViewBox(event.clientX), this.viewport());
-    this.viewportChange.emit(zoomViewport(this.viewport(), focusYear, wheelZoomFactor(event.deltaY)));
+    const factor = wheelZoomFactor(event.deltaY, wheelBoost(this.wheelStreak));
+    this.viewportChange.emit(zoomViewport(this.viewport(), focusYear, factor));
   }
 
   protected onPointerDown(event: PointerEvent): void {

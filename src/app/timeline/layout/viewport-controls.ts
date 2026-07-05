@@ -64,11 +64,22 @@ export function panViewport(viewport: Viewport, dx: number): Viewport {
  * Mausrad-Delta → Zoomfaktor. deltaY < 0 (nach vorn) zoomt hinein.
  * Proportional zu |deltaY| (Trackpads liefern feine Deltas, Mäuse ~100 je
  * Raste); Exponent gedeckelt, damit ein Ausreißer-Event nicht springt.
+ * `boost` ≥ 1 beschleunigt (anhaltendes Scrollen, s. wheelBoost).
  */
-export function wheelZoomFactor(deltaY: number): number {
-  const notches = Math.min(Math.abs(deltaY) / 100, 10);
+export function wheelZoomFactor(deltaY: number, boost = 1): number {
+  const notches = Math.min(Math.abs(deltaY) / 100, 10) * boost;
   const factor = Math.pow(ZOOM.factorPerNotch, notches);
   return deltaY < 0 ? factor : 1 / factor;
+}
+
+/**
+ * Beschleunigung bei anhaltendem Scrollen (1d-Nachtrag, Erspiel-Feedback):
+ * einzelne Rasten bleiben präzise (Boost 1), eine ununterbrochene Serie
+ * wächst linear bis zum Deckel — die Reise über 9 Größenordnungen wird
+ * ein kurzes Durchscrollen statt ~90 Einzelrasten.
+ */
+export function wheelBoost(streak: number): number {
+  return 1 + Math.min(streak * 0.4, 5);
 }
 
 /** Achsenbeschriftung: umgezogen nach data/format.ts (1f); Re-Export für bestehende Importe. */

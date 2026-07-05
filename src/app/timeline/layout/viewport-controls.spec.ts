@@ -5,6 +5,7 @@ import {
   clampViewport,
   formatAxisYear,
   panViewport,
+  wheelBoost,
   wheelZoomFactor,
   zoomViewport,
 } from './viewport-controls';
@@ -79,6 +80,22 @@ describe('wheelZoomFactor', () => {
   it('skaliert mit der Delta-Größe, aber gedeckelt', () => {
     expect(wheelZoomFactor(-200)).toBeCloseTo(ZOOM.factorPerNotch ** 2, 6);
     expect(wheelZoomFactor(-1e6)).toBeCloseTo(ZOOM.factorPerNotch ** 10, 6);
+  });
+
+  it('boost verstärkt den Exponenten (Beschleunigung)', () => {
+    expect(wheelZoomFactor(-100, 3)).toBeCloseTo(ZOOM.factorPerNotch ** 3, 6);
+    expect(wheelZoomFactor(100, 3)).toBeCloseTo(1 / ZOOM.factorPerNotch ** 3, 6);
+  });
+});
+
+describe('wheelBoost', () => {
+  it('einzelne Rasten bleiben präzise (Boost 1)', () => {
+    expect(wheelBoost(0)).toBe(1);
+  });
+
+  it('wächst mit der Serie und ist gedeckelt', () => {
+    expect(wheelBoost(5)).toBe(3);
+    expect(wheelBoost(100)).toBe(6); // Deckel
   });
 });
 
