@@ -1,0 +1,12 @@
+/* Editor-Projekt für Playwright-Dateien (liegen außerhalb von app/spec).
+   Ohne dieses Projekt prüft VS Code sie mit Defaults und findet die
+   Node-Typen nicht (Befund 2026-07-06). Der CLI-Build ist unabhängig davon. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/e2e",
+    "lib": ["ESNext", "DOM"],
+    "types": ["node"]
+  },
+  "include": ["e2e/**/*.ts", "playwright.config.ts"]
+}
