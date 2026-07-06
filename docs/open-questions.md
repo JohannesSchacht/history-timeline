@@ -39,6 +39,13 @@ zeigt, wie sich solche Spannen anfühlen sollen.
 „66 Mio. v. Chr.", „300.000 v. Chr.", „1571"). Achse nutzt sie; Tooltips
 behalten das exakte Jahr.
 
+## Q8 — Bedeutungsabhängige Zoom-Grenzen (Erlebnis-Befund 2026-07-06)
+Hineinzoomen in der Erdgeschichte endet bei Tages-Auflösung vor 3,1 Mrd.
+Jahren — verletzt Erwartungs-Prinzipien 1+2 (jede Ansicht sinnvoll;
+Auflösung folgt Bedeutung). Kandidat: minimale Zoomspanne dynamisch aus
+Zeitregion/Datenlage (Dichte + precision der Events dort) statt global
+1 Jahr. Gestaltungsnah → zusammen mit 1g angehen.
+
 ## Q2 — Zielnutzer & Zweck  (teilweise entschieden)
 Start mit **Persona A (Erkunder)** — neugierig/lernend, „was passierte
 gleichzeitig?". B (Rechercheur) und C (kuratierte Story) sind spätere Ziele,
