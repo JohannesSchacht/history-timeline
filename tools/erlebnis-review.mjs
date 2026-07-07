@@ -3,12 +3,12 @@
  * Fährt Erkundungs-Missionen als Persona A und legt Screenshots + Messwerte
  * unter .review/ ab. Maschinenraum-Werkzeug, kein Test.
  *
- * Aufruf: node tools/erlebnis-review.mjs [baseUrl]  (Default: http://localhost:4200)
+ * Aufruf: node tools/erlebnis-review.mjs [baseUrl]  (Default: http://localhost:6200)
  */
 import { chromium } from '@playwright/test';
 import { mkdirSync, writeFileSync } from 'node:fs';
 
-const baseUrl = process.argv[2] ?? 'http://localhost:4200';
+const baseUrl = process.argv[2] ?? 'http://localhost:6200';
 const outDir = '.review';
 mkdirSync(outDir, { recursive: true });
 

@@ -64,7 +64,7 @@ dort gepflegt werden; ein automatischer Test validiert sie bei jedem Push.
 
 | Befehl | Wirkung |
 |---|---|
-| `npm start` | Entwicklungs-Server auf http://localhost:4200 (Live-Reload) |
+| `npm start` | Entwicklungs-Server auf http://localhost:6200 (Live-Reload) |
 | `npm test` | Unit-Tests (L1/L2, Vitest) |
 | `npm run test:verbose` | Unit-Tests mit Einzelauflistung aller Tests |
 | `npm run e2e` | Produktions-Build + Browser-Tests (L3, Playwright) |
